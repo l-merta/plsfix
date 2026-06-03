@@ -1,348 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PLS FIX (ME) — Forest Green "Bruce"</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,600&family=VT323&family=Courier+Prime:wght@400;700&display=swap">
-<style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLS FIX (ME) — Forest Green "Bruce"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,600&family=VT323&family=Courier+Prime:wght@400;700&display=swap">
 
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --hat:#1E4D2B;
-  --hat-dark:#163820;
-  --accent:#4CAF50;
-  --yellow:#FFD700;
-  --black:#0a0a0a;
-  --gray:#d4d0c8;
-  --cream:#f7f4ee;
-}
-body{background:var(--gray);background-image:url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='2' height='2' fill='%23c8c4bc'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23c8c4bc'/%3E%3C/svg%3E");font-family:'Courier Prime',monospace;min-height:100vh;}
+    <link rel="stylesheet" href="/styles/hat-green.css">
 
-/* WIN CHROME */
-.win-bar{background:linear-gradient(to right,#1a3a1a,#2d6e2d);color:#fff;height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 6px;font-size:11px;font-weight:bold;font-family:Tahoma,Arial,sans-serif;position:sticky;top:0;z-index:100;}
-.win-title{display:flex;align-items:center;gap:6px;}
-.win-btns{display:flex;gap:2px;}
-.wb{width:16px;height:14px;background:var(--gray);border:1px solid;border-color:#fff #555 #555 #fff;display:flex;align-items:center;justify-content:center;font-size:9px;cursor:pointer;color:#000;font-weight:bold;}
-
-/* BACK LINK */
-.back-bar{background:var(--gray);border-bottom:1px solid #999;padding:4px 12px;font-size:11px;font-family:Tahoma,Arial,sans-serif;display:flex;align-items:center;gap:6px;}
-.back-link{color:#000080;text-decoration:underline;cursor:pointer;font-size:11px;}
-.back-link:hover{color:#cc0000;}
-
-/* MAIN LAYOUT */
-.page{max-width:860px;margin:16px auto;padding:0 12px 40px;}
-
-/* TOP WINDOW: HAT STAGE */
-.window{background:var(--gray);border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:3px 3px 0 #000;margin-bottom:12px;}
-.window-titlebar{background:linear-gradient(to right,#1a3a1a,#2d6e2d);color:#fff;height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 6px;font-size:11px;font-weight:bold;font-family:Tahoma,Arial,sans-serif;}
-.wt-left{display:flex;align-items:center;gap:6px;}
-.excl{display:inline-block;background:var(--yellow);color:#000;font-weight:bold;font-family:'VT323',monospace;font-size:16px;width:18px;height:18px;text-align:left;padding-left:3px;line-height:18px;border:2px solid #000;}
-
-/* HAT STAGE */
-.hat-stage{background:var(--hat);display:grid;grid-template-columns:1fr 1fr;min-height:320px;}
-.hat-visual{display:flex;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden;}
-.hat-glow{position:absolute;width:70%;height:70%;border-radius:50%;background:radial-gradient(ellipse,rgba(76,175,80,0.15) 0%,transparent 70%);pointer-events:none;}
-.hat-visual svg{width:min(280px,80%);filter:drop-shadow(0 8px 24px rgba(0,0,0,0.7));position:relative;z-index:2;}
-
-/* Image placeholder / real photo slot */
-.hat-photo{width:100%;height:100%;object-fit:cover;display:block;}
-.photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--hat-dark);color:rgba(255,255,255,0.15);font-family:'VT323',monospace;font-size:14px;letter-spacing:.1em;flex-direction:column;gap:8px;}
-
-.hat-info-panel{padding:40px 36px;display:flex;flex-direction:column;justify-content:center;gap:0;}
-.hat-num{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-family:Tahoma,Arial,sans-serif;margin-bottom:10px;}
-.hat-name{font-family:'EB Garamond',serif;font-size:52px;font-weight:700;font-style:italic;color:#fff;line-height:1;margin-bottom:6px;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hat-sub{font-family:'EB Garamond',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.45);margin-bottom:28px;letter-spacing:.04em;}
-.hat-price{font-family:'EB Garamond',serif;font-size:38px;font-weight:600;color:#fff;margin-bottom:6px;}
-.hat-stock{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(76,175,80,0.8);font-family:Tahoma,Arial,sans-serif;margin-bottom:24px;}
-
-.btn-cart{padding:12px 28px;background:var(--yellow);color:#000;font-family:'EB Garamond',serif;font-style:italic;font-size:20px;font-weight:700;border:2px solid;border-color:#fff #888 #888 #fff;cursor:pointer;letter-spacing:.05em;box-shadow:3px 3px 0 rgba(0,0,0,0.4);transition:transform .1s,box-shadow .1s;display:inline-block;margin-bottom:12px;}
-.btn-cart:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(0,0,0,0.4);}
-.btn-cart:active{transform:translate(1px,1px);box-shadow:1px 1px 0;}
-
-.hat-details-row{display:flex;flex-direction:column;gap:4px;margin-top:4px;}
-.hat-det{font-size:11px;color:rgba(255,255,255,0.35);font-family:Tahoma,Arial,sans-serif;display:flex;align-items:center;gap:6px;}
-.hat-det::before{content:'◆';color:rgba(76,175,80,0.4);font-size:.8em;}
-
-/* BOTTOM GRID */
-.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-
-/* ABOUT WINDOW */
-.about-body{padding:14px 16px;font-size:12px;line-height:1.8;color:#222;}
-.about-body p+p{margin-top:10px;}
-
-/* GALLERY WINDOW */
-.gallery-inner{padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.gallery-slot{aspect-ratio:1;background:var(--hat-dark);border:2px inset #999;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;transition:opacity .15s;}
-.gallery-slot:hover{opacity:.85;}
-.gallery-slot img{width:100%;height:100%;object-fit:cover;}
-.gallery-empty{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:rgba(255,255,255,0.2);font-family:'VT323',monospace;font-size:13px;letter-spacing:.1em;}
-
-/* OTHER COLORWAYS */
-.colorways-inner{padding:12px;display:flex;gap:8px;}
-.colorway-chip{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;text-decoration:none;}
-.chip-swatch{width:36px;height:36px;border:2px solid #888;transition:border-color .15s;}
-.colorway-chip:hover .chip-swatch{border-color:#000;}
-.chip-label{font-size:10px;font-family:'VT323',monospace;color:#333;letter-spacing:.05em;}
-
-/* MODAL */
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;}
-.modal-bg.open{display:flex;}
-.modal{background:var(--gray);border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:4px 4px 0 #000;width:360px;max-width:95vw;}
-.modal-head{background:linear-gradient(to right,#1a3a1a,#2d6e2d);color:#fff;padding:3px 8px;font-size:12px;font-weight:bold;display:flex;justify-content:space-between;font-family:Tahoma,Arial,sans-serif;}
-.modal-body{padding:16px;}
-.modal-body p{font-size:12px;margin-bottom:12px;line-height:1.5;color:#333;}
-.m-label{font-size:11px;display:block;margin-bottom:3px;}
-.m-input{width:100%;padding:4px 6px;border:2px inset #888;font-size:12px;margin-bottom:10px;background:#fff;font-family:'Courier Prime',monospace;}
-.m-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.modal-footer{display:flex;gap:6px;justify-content:flex-end;padding:0 16px 14px;}
-.d-btn{padding:3px 16px;font-size:12px;background:var(--gray);border:2px solid;border-color:#fff #808080 #808080 #fff;cursor:pointer;min-width:70px;font-family:Tahoma,Arial,sans-serif;}
-.d-btn:active{border-color:#808080 #fff #fff #808080;}
-.d-btn.primary{font-weight:bold;}
-.confirm{text-align:center;padding:16px 0 4px;}
-.confirm .ck{font-size:40px;color:#1E4D2B;}
-.confirm p{font-size:12px;color:#555;font-style:italic;margin-top:6px;}
-
-@media(max-width:600px){
-  .hat-stage{grid-template-columns:1fr;}
-  .bottom-grid{grid-template-columns:1fr;}
-  .hat-name{font-size:38px;}
-}
-
-.consent-block{margin:4px 0 12px;}
-.consent-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;font-size:11px;line-height:1.5;color:#333;}
-.consent-row input[type=checkbox]{margin-top:2px;flex-shrink:0;width:14px;height:14px;cursor:pointer;}
-.consent-row label{cursor:pointer;}
-.consent-row a{color:#000080;text-decoration:underline;}
-.consent-row a:hover{color:#cc0000;}
-.consent-req{color:#cc0000;}
-.m-input.invalid{border-color:#cc0000;background:#fff0f0;}
-.d-btn.primary:disabled{opacity:.4;cursor:not-allowed;}
-
-</style>
-</head>
-<body>
-
-<div class="win-bar">
-  <div class="win-title">📄 &nbsp;plsfix.me / green — pls_fix_green.htm</div>
-  <div class="win-btns"><div class="wb">_</div><div class="wb">⬜</div><div class="wb">✕</div></div>
-</div>
-
-<div class="back-bar">
-  <span>📁</span>
-  <a class="back-link" href="/">← Back to plsfix.me</a>
-  <span style="color:#888">&nbsp;/&nbsp; Forest Green</span>
-</div>
-
-<div class="page">
-
-  <!-- HAT STAGE -->
-  <div class="window">
-    <div class="window-titlebar">
-      <div class="wt-left"><span class="excl">!</span> pls fix (me) — forest green "bruce"</div>
-      <div class="win-btns"><div class="wb">_</div><div class="wb">⬜</div><div class="wb">✕</div></div>
-    </div>
-    <div class="hat-stage">
-
-      <!-- VISUAL -->
-      <div class="hat-visual">
-        <div class="hat-glow"></div>
-        <!-- Swap src below for real photo -->
-        <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="120" cy="136" rx="108" ry="19" fill="#163820"/>
-          <path d="M18 136 Q18 38 120 35 Q222 38 222 136 Z" fill="#1E4D2B"/>
-          <path d="M22 136 Q18 40 120 37 Q222 40 218 136" stroke="#163820" stroke-width="1.2" fill="none"/>
-          <path d="M26 136 Q120 155 214 136" stroke="#163820" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
-          <path d="M120 35 L120 95" stroke="#163820" stroke-width="1"/>
-          <path d="M72 48 Q96 72 120 80" stroke="#163820" stroke-width="1"/>
-          <path d="M168 48 Q144 72 120 80" stroke="#163820" stroke-width="1"/>
-          <circle cx="120" cy="36" r="5" fill="#163820" stroke="#1a3a1a" stroke-width="1"/>
-          <text x="120" y="112" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="'EB Garamond',Georgia,serif" font-style="italic" font-size="18" letter-spacing="1.5">pls fix (me)</text>
-        </svg>
-      </div>
-
-      <!-- INFO -->
-      <div class="hat-info-panel">
-        <div class="hat-num">01 / 03 &nbsp;·&nbsp; Drop 01 &nbsp;·&nbsp; "Bruce"</div>
-        <div class="hat-name">Forest<br>Green</div>
-        <div class="hat-sub">"Bruce" — for those who left. or are about to.</div>
-        <div class="hat-price">€35</div>
-        <div class="hat-stock">● Pre-order — reserve before <span id="drop-date">[DROP DATE]</span></div>
-        <button class="btn-cart" onclick="openModal()">Reserve &amp; pay →</button>
-        <div class="hat-details-row">
-          <div class="hat-det">Recycled organic cotton</div>
-          <div class="hat-det">White Garamond italic embroidery</div>
-          <div class="hat-det">One size, adjustable strap</div>
-          <div class="hat-det">Ships 5–7 days worldwide</div>
-        </div>
-      </div>
-    </div>
+    <script src="/scripts/hat-green.js" defer></script>
+  </head>
+  <body>
+  <div class="win-bar">
+    <div class="win-title">📄 &nbsp;plsfix.me / green — pls_fix_green.htm</div>
+    <div class="win-btns"><div class="wb">_</div><div class="wb">⬜</div><div class="wb">✕</div></div>
   </div>
 
-  <!-- BOTTOM ROW -->
-  <div class="bottom-grid">
+  <div class="back-bar">
+    <span>📁</span>
+    <a class="back-link" href="/">← Back to plsfix.me</a>
+    <span style="color:#888">&nbsp;/&nbsp; Forest Green</span>
+  </div>
 
-    <!-- ABOUT -->
+  <div class="page">
+
+    <!-- HAT STAGE -->
     <div class="window">
       <div class="window-titlebar">
-        <div class="wt-left"><span class="excl">!</span> about_green.txt</div>
-        <div class="win-btns"><div class="wb">✕</div></div>
+        <div class="wt-left"><span class="excl">!</span> pls fix (me) — forest green "bruce"</div>
+        <div class="win-btns"><div class="wb">_</div><div class="wb">⬜</div><div class="wb">✕</div></div>
       </div>
-      <div class="about-body">
-        <p>Green is for those who technically still work there but have already left in every meaningful sense.</p>
-        <p>Worn to client sites, exit interviews, and airports in cities that were expensed but not enjoyed.</p>
-        <p style="color:#cc0000; font-style:italic;">counseled out gently.<br>hat arrived on time.</p>
+      <div class="hat-stage">
+
+        <!-- VISUAL -->
+        <div class="hat-visual">
+          <div class="hat-glow"></div>
+          <!-- Swap src below for real photo -->
+          <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="120" cy="136" rx="108" ry="19" fill="#163820"/>
+            <path d="M18 136 Q18 38 120 35 Q222 38 222 136 Z" fill="#1E4D2B"/>
+            <path d="M22 136 Q18 40 120 37 Q222 40 218 136" stroke="#163820" stroke-width="1.2" fill="none"/>
+            <path d="M26 136 Q120 155 214 136" stroke="#163820" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+            <path d="M120 35 L120 95" stroke="#163820" stroke-width="1"/>
+            <path d="M72 48 Q96 72 120 80" stroke="#163820" stroke-width="1"/>
+            <path d="M168 48 Q144 72 120 80" stroke="#163820" stroke-width="1"/>
+            <circle cx="120" cy="36" r="5" fill="#163820" stroke="#1a3a1a" stroke-width="1"/>
+            <text x="120" y="112" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="'EB Garamond',Georgia,serif" font-style="italic" font-size="18" letter-spacing="1.5">pls fix (me)</text>
+          </svg>
+        </div>
+
+        <!-- INFO -->
+        <div class="hat-info-panel">
+          <div class="hat-num">01 / 03 &nbsp;·&nbsp; Drop 01 &nbsp;·&nbsp; "Bruce"</div>
+          <div class="hat-name">Forest<br>Green</div>
+          <div class="hat-sub">"Bruce" — for those who left. or are about to.</div>
+          <div class="hat-price">€35</div>
+          <div class="hat-stock">● Pre-order — reserve before <span id="drop-date">[DROP DATE]</span></div>
+          <button class="btn-cart" onclick="openModal()">Reserve &amp; pay →</button>
+          <div class="hat-details-row">
+            <div class="hat-det">Recycled organic cotton</div>
+            <div class="hat-det">White Garamond italic embroidery</div>
+            <div class="hat-det">One size, adjustable strap</div>
+            <div class="hat-det">Ships 5–7 days worldwide</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- GALLERY -->
-    <div class="window">
+    <!-- BOTTOM ROW -->
+    <div class="bottom-grid">
+
+      <!-- ABOUT -->
+      <div class="window">
+        <div class="window-titlebar">
+          <div class="wt-left"><span class="excl">!</span> about_green.txt</div>
+          <div class="win-btns"><div class="wb">✕</div></div>
+        </div>
+        <div class="about-body">
+          <p>Green is for those who technically still work there but have already left in every meaningful sense.</p>
+          <p>Worn to client sites, exit interviews, and airports in cities that were expensed but not enjoyed.</p>
+          <p style="color:#cc0000; font-style:italic;">counseled out gently.<br>hat arrived on time.</p>
+        </div>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="window">
+        <div class="window-titlebar">
+          <div class="wt-left"><span class="excl">!</span> gallery (2 photos)</div>
+          <div class="win-btns"><div class="wb">✕</div></div>
+        </div>
+        <div class="gallery-inner">
+          <div class="gallery-slot">
+            <!-- <img src="green-1.jpg" class="hat-photo"> -->
+            <div class="gallery-empty"><span style="font-size:24px;">📷</span>photo 1</div>
+          </div>
+          <div class="gallery-slot">
+            <!-- <img src="green-2.jpg" class="hat-photo"> -->
+            <div class="gallery-empty"><span style="font-size:24px;">📷</span>photo 2</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OTHER COLORWAYS -->
+    <div class="window" style="margin-top:12px;">
       <div class="window-titlebar">
-        <div class="wt-left"><span class="excl">!</span> gallery (2 photos)</div>
+        <div class="wt-left"><span class="excl">!</span> other colorways</div>
         <div class="win-btns"><div class="wb">✕</div></div>
       </div>
-      <div class="gallery-inner">
-        <div class="gallery-slot">
-          <!-- <img src="green-1.jpg" class="hat-photo"> -->
-          <div class="gallery-empty"><span style="font-size:24px;">📷</span>photo 1</div>
-        </div>
-        <div class="gallery-slot">
-          <!-- <img src="green-2.jpg" class="hat-photo"> -->
-          <div class="gallery-empty"><span style="font-size:24px;">📷</span>photo 2</div>
-        </div>
+      <div class="colorways-inner">
+        <a class="colorway-chip" href="plsfix-navy.html">
+          <div class="chip-swatch" style="background:#1B2A4A;"></div>
+          <div class="chip-label">Navy</div>
+        </a>
+        <a class="colorway-chip" href="plsfix-black.html">
+          <div class="chip-swatch" style="background:#111;"></div>
+          <div class="chip-label">Black</div>
+        </a>
+        <a class="colorway-chip" href="#" style="opacity:.4;cursor:not-allowed;">
+          <div class="chip-swatch" style="background:#0a0a0a;border-style:dashed;"></div>
+          <div class="chip-label" style="color:#888;">July 26</div>
+        </a>
       </div>
     </div>
 
   </div>
 
-  <!-- OTHER COLORWAYS -->
-  <div class="window" style="margin-top:12px;">
-    <div class="window-titlebar">
-      <div class="wt-left"><span class="excl">!</span> other colorways</div>
-      <div class="win-btns"><div class="wb">✕</div></div>
-    </div>
-    <div class="colorways-inner">
-      <a class="colorway-chip" href="plsfix-navy.html">
-        <div class="chip-swatch" style="background:#1B2A4A;"></div>
-        <div class="chip-label">Navy</div>
-      </a>
-      <a class="colorway-chip" href="plsfix-black.html">
-        <div class="chip-swatch" style="background:#111;"></div>
-        <div class="chip-label">Black</div>
-      </a>
-      <a class="colorway-chip" href="#" style="opacity:.4;cursor:not-allowed;">
-        <div class="chip-swatch" style="background:#0a0a0a;border-style:dashed;"></div>
-        <div class="chip-label" style="color:#888;">July 26</div>
-      </a>
-    </div>
-  </div>
-
-</div>
-
-<!-- MODAL -->
-<div class="modal-bg" id="modal">
-  <div class="modal">
-    <div class="modal-head">
-      <span>🛒 &nbsp;Pls Fix (Me) — Forest Green</span>
-      <span style="cursor:pointer" onclick="closeModal()">✕</span>
-    </div>
-    <div id="modal-body">
-      <div class="modal-body">
-        <p>Reserving: <strong>Pls Fix (Me) — Forest Green "Bruce"</strong><br>
-        Amount: <strong style="color:#cc0000">€35</strong><br><br>
-        <strong>Pre-order for Drop 01.</strong> Payment is taken now and secured via Stripe. Ships after the order window closes (<strong id="drop-date">[DROP DATE]</strong>).</p>
+  <!-- MODAL -->
+  <div class="modal-bg" id="modal">
+    <div class="modal">
+      <div class="modal-head">
+        <span>🛒 &nbsp;Pls Fix (Me) — Forest Green</span>
+        <span style="cursor:pointer" onclick="closeModal()">✕</span>
+      </div>
+      <div id="modal-body">
+        <div class="modal-body">
+          <p>Reserving: <strong>Pls Fix (Me) — Forest Green "Bruce"</strong><br>
+          Amount: <strong style="color:#cc0000">€35</strong><br><br>
+          <strong>Pre-order for Drop 01.</strong> Payment is taken now and secured via Stripe. Ships after the order window closes (<strong id="drop-date">[DROP DATE]</strong>).</p>
+          
         
-      
-        <label class="m-label" for="email">Your email <span class="consent-req">*</span></label>
-        <input class="m-input" type="email" id="email" placeholder="you@firm.com" oninput="validateForm()">
+          <label class="m-label" for="email">Your email <span class="consent-req">*</span></label>
+          <input class="m-input" type="email" id="email" placeholder="you@firm.com" oninput="validateForm()">
 
-        <div class="consent-block">
-          <div class="consent-row">
-            <input type="checkbox" id="agree-terms" onchange="validateForm()">
-            <label for="agree-terms">I have read and agree to the <a href="terms.html" target="_blank">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>. <span class="consent-req">*</span></label>
-          </div>
-          <div class="consent-row">
-            <input type="checkbox" id="agree-news">
-            <label for="agree-news">Email me about future drops (optional). You can unsubscribe anytime.</label>
+          <div class="consent-block">
+            <div class="consent-row">
+              <input type="checkbox" id="agree-terms" onchange="validateForm()">
+              <label for="agree-terms">I have read and agree to the <a href="terms.html" target="_blank">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>. <span class="consent-req">*</span></label>
+            </div>
+            <div class="consent-row">
+              <input type="checkbox" id="agree-news">
+              <label for="agree-news">Email me about future drops (optional). You can unsubscribe anytime.</label>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button class="d-btn" onclick="closeModal()">Cancel</button>
-        <button class="d-btn primary" id="reserve-btn" onclick="reserveViaStripe()" disabled>Reserve &amp; pay via Stripe →</button>
+        <div class="modal-footer">
+          <button class="d-btn" onclick="closeModal()">Cancel</button>
+          <button class="d-btn primary" id="reserve-btn" onclick="reserveViaStripe()" disabled>Reserve &amp; pay via Stripe →</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<script>
-  /* ============================================================
-     CONFIG — the only block to edit for this colorway page.
-     DROP_DEADLINE : when pre-orders close (then you ship).
-     STRIPE_LINK   : this colorway's Stripe Payment Link URL.
-     PRODUCT_NAME  : label stored with the email signup.
-     ============================================================ */
-  const DROP_DEADLINE = '2026-07-01T23:59:59'; // <-- SET ORDER CLOSE DATE
-  const STRIPE_LINK   = '';                      // <-- PASTE STRIPE PAYMENT LINK
-  const PRODUCT_NAME  = 'Pls Fix (Me) — Green';
-
-  (function(){
-    const d = new Date(DROP_DEADLINE);
-    const s = d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-    document.querySelectorAll('#drop-date').forEach(el => el.textContent = s);
-  })();
-
-  function openModal(){ document.getElementById('modal').classList.add('open'); validateForm(); }
-  function closeModal(){ document.getElementById('modal').classList.remove('open'); }
-
-  function validateForm(){
-    const email = document.getElementById('email');
-    const terms = document.getElementById('agree-terms');
-    const btn   = document.getElementById('reserve-btn');
-    if(!email || !terms || !btn) return;
-    const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim());
-    email.classList.toggle('invalid', email.value.length > 0 && !emailOk);
-    btn.disabled = !(emailOk && terms.checked);
-  }
-
-  function reserveViaStripe(){
-    const email = document.getElementById('email').value.trim();
-    const newsletter = document.getElementById('agree-news').checked;
-
-    /* ----------------------------------------------------------
-       DEV: send {email, newsletter, product, consentAt} to your
-       email tool / order log BEFORE redirecting to Stripe.
-       Example (replace with Mailchimp/Brevo/your endpoint):
-
-       fetch('/api/preorder-signup', {
-         method:'POST',
-         headers:{'Content-Type':'application/json'},
-         body: JSON.stringify({
-           email, newsletter, product: PRODUCT_NAME,
-           termsConsent: true, consentAt: new Date().toISOString()
-         })
-       });
-
-       Store termsConsent + timestamp — GDPR requires proof of consent.
-       Only add to the newsletter list if newsletter === true.
-    ---------------------------------------------------------- */
-    console.log('PRE-ORDER SIGNUP', { email, newsletter, product: PRODUCT_NAME, consentAt: new Date().toISOString() });
-
-    if(!STRIPE_LINK){
-      document.getElementById('modal-body').innerHTML =
-        '<div class="modal-body"><div class="confirm"><div class="ck">!</div>' +
-        '<p><em>Prototype mode.</em><br>Captured: ' + email + '<br>Newsletter: ' + (newsletter ? 'yes' : 'no') +
-        '<br><br>Add STRIPE_LINK to enable real checkout.</p>' +
-        '<button class="d-btn primary" style="margin-top:14px" onclick="closeModal()">OK</button></div></div>';
-      return;
-    }
-    const sep = STRIPE_LINK.includes('?') ? '&' : '?';
-    window.location.href = STRIPE_LINK + sep + 'prefilled_email=' + encodeURIComponent(email);
-  }
-
-  document.getElementById('modal').addEventListener('click',e=>{ if(e.target===document.getElementById('modal')) closeModal(); });
-</script>
-</body>
+  </body>
 </html>

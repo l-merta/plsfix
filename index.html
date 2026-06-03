@@ -1,975 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PLS FIX (ME) — hats for the broken</title>
+  <head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLS FIX (ME) — hats for the broken</title>
 
-<!-- Fonts: preconnect speeds up the handshake; <link> is non-blocking vs @import -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=VT323&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,600&display=swap">
+    <!-- Fonts: preconnect speeds up the handshake; <link> is non-blocking vs @import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=VT323&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,600&display=swap">
 
-<style>
-  :root {
-    --yellow: #FFD700;
-    --black: #0a0a0a;
-    --green: #3a7a3a;
-    --white: #f0f0e8;
-    --gray: #cccccc;
-    --red: #cc0000;
-    --link: #0000EE;
-    --visited: #551A8B;
-  }
+    <link rel="stylesheet" href="/styles/main.css">
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    <script src="/scripts/main.js" defer></script>
+  </head>
+  <body>
 
-  body {
-    background-color: #c0c0c0;
-    background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='2' height='2' fill='%23b0b0b0'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23b0b0b0'/%3E%3C/svg%3E");
-    font-family: 'Courier Prime', monospace;
-    color: #000;
-    cursor: default;
-    min-height: 100vh;
-  }
-
-  /* MARQUEE TOP BAR */
-  .topbar {
-    background: #000080;
-    color: #fff;
-    font-family: 'EB Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: 16px;
-    letter-spacing: 0.1em;
-    padding: 3px 0;
-    overflow: hidden;
-    border-bottom: 2px solid #fff;
-  }
-  .marquee-inner {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee 18s linear infinite;
-  }
-  @keyframes marquee {
-    0% { transform: translateX(100vw); }
-    100% { transform: translateX(-100%); }
-  }
-
-  /* WINDOWS 98 WINDOW */
-  .window {
-    background: #d4d0c8;
-    border: 2px solid;
-    border-color: #fff #808080 #808080 #fff;
-    box-shadow: 2px 2px 0 #000;
-    margin: 10px;
-  }
-  .window-titlebar {
-    background: linear-gradient(to right, #000080, #1084d0);
-    color: #fff;
-    font-family: 'VT323', monospace;
-    font-size: 16px;
-    padding: 3px 6px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    user-select: none;
-  }
-  .window-titlebar .title-left {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .window-controls {
-    display: flex;
-    gap: 2px;
-  }
-  .window-btn {
-    width: 16px;
-    height: 14px;
-    background: #d4d0c8;
-    border: 1px solid;
-    border-color: #fff #808080 #808080 #fff;
-    font-size: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-family: 'Courier Prime', monospace;
-    font-weight: bold;
-  }
-  .window-content {
-    padding: 12px;
-  }
-
-  /* HEADER / HERO */
-  .hero-window {
-    max-width: 900px;
-    margin: 16px auto;
-  }
-  .hero-inner {
-    background: #000;
-    padding: 0;
-    overflow: hidden;
-    position: relative;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border: 4px inset #555;
-  }
-  .hero-dvd {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    text-align: center;
-  }
-  .hero-glitch {
-    font-family: 'VT323', monospace;
-    font-size: clamp(48px, 10vw, 96px);
-    color: #FFD700;
-    text-shadow: 3px 0 #ff0000, -3px 0 #0000ff;
-    letter-spacing: 4px;
-    animation: glitch 4s infinite;
-    position: relative;
-    z-index: 2;
-    text-transform: lowercase;
-    line-height: 1;
-  }
-  @keyframes glitch {
-    0%, 90%, 100% { text-shadow: 3px 0 #ff0000, -3px 0 #0000ff; transform: translateX(0); }
-    91% { text-shadow: -3px 0 #ff0000, 3px 0 #0000ff; transform: translateX(2px); }
-    92% { text-shadow: 3px 0 #ff0000, -3px 0 #0000ff; transform: translateX(-2px); }
-    93% { transform: translateX(0); }
-  }
-  .hero-sub {
-    font-family: 'VT323', monospace;
-    font-size: 20px;
-    color: #aaa;
-    letter-spacing: 5px;
-    z-index: 2;
-    text-transform: lowercase;
-  }
-  .scanlines {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0,0,0,0.15) 2px,
-      rgba(0,0,0,0.15) 4px
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  /* UNDER CONSTRUCTION */
-  .construction-bar {
-    background: repeating-linear-gradient(
-      45deg,
-      #FFD700,
-      #FFD700 10px,
-      #000 10px,
-      #000 20px
-    );
-    color: #fff;
-    font-family: 'VT323', monospace;
-    font-size: 20px;
-    text-align: center;
-    padding: 6px;
-    text-shadow: 1px 1px 0 #000;
-    letter-spacing: 3px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  /* MAIN LAYOUT */
-  .main-grid {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 260px;
-    gap: 10px;
-    padding: 0 10px 20px;
-  }
-
-  /* PRODUCT CARDS */
-  .product-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .product-card {
-    background: #fff;
-    border: 2px solid #000;
-    overflow: hidden;
-    transition: transform 0.1s;
-    display: flex;
-    flex-direction: column;
-  }
-  .product-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0 #000;
-  }
-  .product-img {
-    width: 100%;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 64px;
-    border-bottom: 2px solid #000;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .product-img.black-hat { background: #1a1a1a; }
-  .product-img.green-hat { background: #2d5a2d; }
-  .product-img.special { background: #0a0a0a; }
-
-  /* Hat SVG representations */
-  .hat-display {
-    text-align: center;
-    padding: 20px;
-  }
-  .hat-svg { width: 120px; height: auto; }
-
-  .product-info {
-    padding: 10px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-  .product-name {
-    font-family: 'VT323', monospace;
-    font-size: 22px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
-  .product-desc { display: none; }
-  .product-price {
-    font-family: 'VT323', monospace;
-    font-size: 24px;
-    color: var(--red);
-    margin-bottom: 6px;
-    margin-top: auto;
-  }
-  .product-status {
-    font-size: 10px;
-    font-family: 'VT323', monospace;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
-  .in-stock { color: #006600; }
-  .sold-out { color: #cc0000; }
-  .rare-drop { color: #8800cc; animation: blink 1s step-end infinite; }
-  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-  .btn {
-    display: block;
-    width: 100%;
-    padding: 6px;
-    font-family: 'VT323', monospace;
-    font-size: 18px;
-    letter-spacing: 2px;
-    text-align: center;
-    cursor: pointer;
-    border: 2px solid;
-    border-color: #fff #808080 #808080 #fff;
-    background: #d4d0c8;
-    margin-top: 8px;
-    text-decoration: none;
-    color: #000;
-    transition: all 0.05s;
-  }
-  .btn:active {
-    border-color: #808080 #fff #fff #808080;
-    transform: translate(1px, 1px);
-  }
-  .btn-primary { background: #000080; color: #fff; }
-  .btn-primary:active { background: #000060; }
-
-  /* SIDEBAR */
-  .sidebar { display: flex; flex-direction: column; gap: 10px; }
-
-  /* VISITOR COUNTER */
-  .counter-display {
-    font-family: 'VT323', monospace;
-    font-size: 36px;
-    color: #00ff00;
-    background: #000;
-    padding: 8px 12px;
-    text-align: center;
-    letter-spacing: 4px;
-    border: 2px inset #333;
-    text-shadow: 0 0 8px #00ff00;
-  }
-
-  /* POPUP / ALERT STYLE */
-  .alert-box {
-    background: #d4d0c8;
-    border: 2px solid;
-    border-color: #fff #808080 #808080 #fff;
-    padding: 0;
-  }
-  .alert-title {
-    background: linear-gradient(to right, #000080, #1084d0);
-    color: #fff;
-    font-family: 'VT323', monospace;
-    font-size: 15px;
-    padding: 3px 6px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .alert-body {
-    padding: 12px;
-    font-size: 12px;
-    line-height: 1.6;
-  }
-
-  /* GUESTBOOK */
-  .guestbook-entries {
-    background: #fff;
-    border: 2px inset #888;
-    padding: 8px;
-    font-size: 11px;
-    max-height: 160px;
-    overflow-y: scroll;
-    line-height: 1.7;
-  }
-  .entry { border-bottom: 1px dotted #ccc; padding: 4px 0; }
-  .entry-name { font-weight: bold; color: #000080; }
-  .entry-text { color: #333; }
-
-  /* FOOTER */
-  .footer {
-    background: #000080;
-    color: #fff;
-    font-family: 'VT323', monospace;
-    font-size: 14px;
-    text-align: center;
-    padding: 12px;
-    letter-spacing: 2px;
-    max-width: 900px;
-    margin: 0 auto 20px;
-  }
-  .footer a { color: #FFD700; text-decoration: none; }
-  .footer a:hover { text-decoration: underline; }
-
-  /* ABOUT SECTION */
-  .about-text {
-    font-size: 12px;
-    line-height: 1.8;
-    color: #222;
-  }
-  .about-text strong { color: #000080; }
-
-  /* EXCLAMATION ICON */
-  .excl-icon {
-    display: inline-block;
-    background: #FFD700;
-    color: #000;
-    font-weight: bold;
-    font-family: 'VT323', monospace;
-    font-size: 18px;
-    width: 22px;
-    height: 22px;
-    text-align: left;
-    line-height: 22px;
-    padding-left: 3px;
-    border: 2px solid #000;
-  }
-
-  /* EMAIL STYLE BLOCKQUOTE */
-  .email-block {
-    background: #fff;
-    border: 1px solid #000080;
-    border-left: 4px solid #000080;
-    padding: 8px 10px;
-    font-size: 11px;
-    color: #333;
-    margin: 8px 0;
-    font-family: 'Courier Prime', monospace;
-  }
-  .email-header { color: #888; font-size: 10px; margin-bottom: 4px; }
-
-  /* STAR DIVIDER */
-  .star-div {
-    text-align: center;
-    font-family: 'VT323', monospace;
-    font-size: 18px;
-    color: #000080;
-    margin: 4px 0;
-    letter-spacing: 4px;
-  }
-
-  /* STRIPE CHECKOUT MODAL */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-  }
-  .modal-overlay.active { display: flex; }
-  .modal-window {
-    background: #d4d0c8;
-    border: 2px solid;
-    border-color: #fff #808080 #808080 #fff;
-    width: 340px;
-    box-shadow: 4px 4px 0 #000;
-  }
-  .modal-content { padding: 16px; }
-  .modal-content p { font-size: 12px; margin-bottom: 12px; line-height: 1.6; }
-  .modal-input {
-    width: 100%;
-    padding: 6px;
-    font-family: 'Courier Prime', monospace;
-    font-size: 12px;
-    border: 2px inset #888;
-    margin-bottom: 8px;
-    background: #fff;
-  }
-  .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .modal-label { font-size: 10px; margin-bottom: 2px; display: block; }
-  .modal-close { cursor: pointer; }
-
-  /* LOADING BAR */
-  .loading-window { display: none; }
-  .loading-window.active { display: block; }
-  .progress-bar {
-    height: 20px;
-    background: #fff;
-    border: 2px inset #888;
-    margin: 8px 0;
-    overflow: hidden;
-    position: relative;
-  }
-  .progress-fill {
-    height: 100%;
-    background: #000080;
-    width: 0%;
-    transition: width 0.3s;
-  }
-
-  @media (max-width: 600px) {
-    .main-grid { grid-template-columns: 1fr; }
-    .product-grid { grid-template-columns: 1fr; }
-    .hero-glitch { font-size: 48px; }
-  }
-
-  /* ── DROP DEADLINE BANNER ─────────────────────────────────── */
-  .drop-banner {
-    background: #FFD700;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
-    color: #000;
-    text-align: center;
-    padding: 8px 16px;
-    font-family: 'VT323', monospace;
-    font-size: 18px;
-    letter-spacing: 1px;
-  }
-  .drop-banner strong { font-weight: 700; }
-  .drop-banner .countdown {
-    background: #000;
-    color: #FFD700;
-    padding: 1px 8px;
-    margin-left: 4px;
-  }
-</style>
-</head>
-<body>
-
-<!-- TOP MARQUEE -->
-<div class="topbar">
-  <div class="marquee-inner">
-    ⚠ PLS FIX (ME) ⚠ &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; New drop &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; Available throughout the night &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; Utilization: 0% &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; WARNING: wearing this hat does not reduce billable hours &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; ⚠ PLS FIX (ME) ⚠ &nbsp;&nbsp;&nbsp;
-  </div>
-</div>
-
-<!-- DROP DEADLINE BANNER
-     DEV NOTE: set the deadline date in the DROP_DEADLINE constant in the
-     <script> block at the bottom. The countdown updates automatically. -->
-<div class="drop-banner">
-  ⏳ DROP 01 &mdash; reserve before <strong id="drop-date">[DROP DATE]</strong>. Ships after. <span class="countdown" id="countdown">—</span>
-</div>
-
-<!-- HERO WINDOW -->
-<div class="window hero-window">
-  <div class="window-titlebar">
-    <div class="title-left">
-      <span class="excl-icon">!</span>
-      plsfix.com — Welcome
-    </div>
-    <div class="window-controls">
-      <div class="window-btn">_</div>
-      <div class="window-btn">□</div>
-      <div class="window-btn">✕</div>
-    </div>
-  </div>
-  <div class="window-content" style="padding:0;">
-    <div class="hero-inner" id="hero-inner">
-      <div class="scanlines"></div>
-      <div class="hero-dvd" id="dvd">
-        <div class="hero-glitch">pls fix (me)</div>
-        <div class="hero-sub">hats for the broken</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- UNDER CONSTRUCTION -->
-<div class="construction-bar">⚠ &nbsp; SITE UNDER CONSTRUCTION &nbsp; ⚠ &nbsp; NEW DROP INCOMING &nbsp; ⚠</div>
-
-<!-- MAIN CONTENT -->
-<div class="main-grid">
-
-  <!-- LEFT: PRODUCTS -->
-  <div>
-    <div class="window">
-      <div class="window-titlebar">
-        <div class="title-left">
-          <span class="excl-icon">!</span>
-          Shop — pls choose carefully
-        </div>
-        <div class="window-controls">
-          <div class="window-btn">_</div>
-          <div class="window-btn">□</div>
-          <div class="window-btn">✕</div>
-        </div>
-      </div>
-      <div class="window-content">
-        <div class="product-grid">
-
-          <!-- PRODUCT 1: Green -->
-          <div class="product-card">
-            <div class="product-img green-hat" onclick="window.location='plsfix/green'" style="cursor:pointer;" title="View Forest Green">
-              <div class="hat-display">
-                <svg class="hat-svg" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse cx="80" cy="78" rx="75" ry="14" fill="#1e3e1e"/>
-                  <path d="M20 78 Q20 30 80 28 Q140 30 140 78 Z" fill="#2d5a2d"/>
-                  <path d="M55 50 Q80 46 105 50" stroke="#90ee90" stroke-width="1.5" fill="none"/>
-                  <text x="80" y="58" text-anchor="middle" fill="#fff" font-family="Courier Prime, monospace" font-size="8" font-style="italic">pls fix (me)</text>
-                </svg>
-              </div>
-              <div style="position:absolute;bottom:6px;right:8px;font-size:9px;font-family:'VT323',monospace;color:rgba(255,255,255,0.4);letter-spacing:.1em;">VIEW →</div>
-            </div>
-            <div class="product-info">
-              <div class="product-name">PLS FIX (ME) — GREEN</div>
-              <div class="product-desc">Forest green. Corporate-acceptable. For when you technically still work there.</div>
-              <div class="product-price">€35.00</div>
-              <div class="product-status in-stock">● IN STOCK</div>
-              <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Green', '€35.00')">RESERVE — €35 →</button>
-            </div>
-          </div>
-
-          <!-- PRODUCT 2: Navy/Blue -->
-          <div class="product-card">
-            <div class="product-img" style="background:#1B2A4A;cursor:pointer;" onclick="window.location='plsfix/navy'" title="View Navy">
-              <div class="hat-display">
-                <svg class="hat-svg" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse cx="80" cy="78" rx="75" ry="14" fill="#152040"/>
-                  <path d="M20 78 Q20 30 80 28 Q140 30 140 78 Z" fill="#1B2A4A"/>
-                  <path d="M55 50 Q80 46 105 50" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none"/>
-                  <text x="80" y="58" text-anchor="middle" fill="#fff" font-family="Courier Prime, monospace" font-size="8" font-style="italic">pls fix (me)</text>
-                </svg>
-              </div>
-              <div style="position:absolute;bottom:6px;right:8px;font-size:9px;font-family:'VT323',monospace;color:rgba(255,255,255,0.4);letter-spacing:.1em;">VIEW →</div>
-            </div>
-            <div class="product-info">
-              <div class="product-name">PLS FIX (ME) — NAVY</div>
-              <div class="product-desc">Navy. Passes the dress code. No one needs to know what it means. You do.</div>
-              <div class="product-price">€35.00</div>
-              <div class="product-status in-stock">● IN STOCK</div>
-              <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Navy', '€35.00')">RESERVE — €35 →</button>
-            </div>
-          </div>
-
-          <!-- PRODUCT 3: Black -->
-          <div class="product-card">
-            <div class="product-img black-hat" onclick="window.location='plsfix/black'" style="cursor:pointer;" title="View Black">
-              <div class="hat-display">
-                <svg class="hat-svg" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse cx="80" cy="78" rx="75" ry="14" fill="#050505"/>
-                  <path d="M20 78 Q20 30 80 28 Q140 30 140 78 Z" fill="#111"/>
-                  <path d="M55 50 Q80 46 105 50" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none"/>
-                  <text x="80" y="58" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Courier Prime, monospace" font-size="8" font-style="italic">pls fix (me)</text>
-                </svg>
-              </div>
-              <div style="position:absolute;bottom:6px;right:8px;font-size:9px;font-family:'VT323',monospace;color:rgba(255,255,255,0.4);letter-spacing:.1em;">VIEW →</div>
-            </div>
-            <div class="product-info">
-              <div class="product-name">PLS FIX (ME) — BLACK</div>
-              <div class="product-desc">Classic. For airports, client sites, and the quiet despair of Sunday PowerPoint.</div>
-              <div class="product-price">€35.00</div>
-              <div class="product-status in-stock">● IN STOCK</div>
-              <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Black', '€35.00')">RESERVE — €35 →</button>
-            </div>
-          </div>
-
-          <!-- PRODUCT 4: LOCKED -->
-          <div class="product-card" style="position:relative; cursor:not-allowed;">
-            <div class="product-img special" style="filter:brightness(0.3); position:relative;">
-              <div class="hat-display">
-                <svg class="hat-svg" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse cx="80" cy="78" rx="75" ry="14" fill="#0a0a0a"/>
-                  <path d="M20 78 Q20 30 80 28 Q140 30 140 78 Z" fill="#111"/>
-                  <text x="80" y="58" text-anchor="middle" fill="#333" font-family="Courier Prime, monospace" font-size="8">? ? ?</text>
-                </svg>
-              </div>
-              <!-- LOCK ICON overlay -->
-              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;">
-                <svg width="32" height="38" viewBox="0 0 32 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="4" y="16" width="24" height="20" fill="#FFD700" stroke="#000" stroke-width="2"/>
-                  <path d="M9 16V11a7 7 0 0 1 14 0v5" stroke="#FFD700" stroke-width="3" fill="none" stroke-linecap="square"/>
-                  <rect x="13" y="23" width="6" height="6" fill="#000"/>
-                </svg>
-                <span style="font-family:'VT323',monospace;font-size:13px;color:#FFD700;letter-spacing:2px;">LOCKED</span>
-              </div>
-            </div>
-            <div class="product-info" style="opacity:0.45;">
-              <div class="product-name" style="color:#888;">??? — RARE DROP</div>
-              <div class="product-desc" style="color:#888;">Identity classified. Unlocks July 2026.</div>
-              <div class="product-price" style="color:#555;">— —</div>
-              <div class="product-status rare-drop">★ COMING JULY 2026</div>
-              <button class="btn" style="opacity:0.4;cursor:not-allowed;" disabled>LOCKED</button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- ABOUT WINDOW -->
-    <div class="window" style="margin-top:10px;">
-      <div class="window-titlebar">
-        <div class="title-left">
-          <span class="excl-icon">!</span>
-          about.txt
-        </div>
-        <div class="window-controls">
-          <div class="window-btn">_</div>
-          <div class="window-btn">□</div>
-          <div class="window-btn">✕</div>
-        </div>
-      </div>
-      <div class="window-content">
-        <div class="about-text">
-          junior analyst. beached. counseled out gently.<br>
-          start date deferred. utilization: zero.<br>
-          AI made the deck. partner still said pls fix.<br>
-          wore the hat to the feedback session.<br>
-          no further questions.<br><br>
-          <strong style="color:#cc0000">pls fix. thx.</strong>
-        </div>
-      </div>
+  <!-- TOP MARQUEE -->
+  <div class="topbar">
+    <div class="marquee-inner">
+      ⚠ PLS FIX (ME) ⚠ &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; New drop &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; Available throughout the night &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; Utilization: 0% &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; WARNING: wearing this hat does not reduce billable hours &nbsp;&nbsp;&nbsp; · &nbsp;&nbsp;&nbsp; ⚠ PLS FIX (ME) ⚠ &nbsp;&nbsp;&nbsp;
     </div>
   </div>
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-
-    <!-- VISITOR COUNTER -->
-    <div class="window">
-      <div class="window-titlebar">
-        <div class="title-left">visitors</div>
-        <div class="window-controls"><div class="window-btn">✕</div></div>
-      </div>
-      <div class="window-content" style="padding:8px; text-align:center;">
-        <div style="font-size:10px; margin-bottom:4px; font-family:'VT323',monospace;">YOU ARE VISITOR #</div>
-        <div class="counter-display" id="counter">004733</div>
-        <div style="font-size:9px; margin-top:4px; color:#555; font-family:'VT323',monospace;">best viewed 800×600</div>
-      </div>
-    </div>
-
-    <!-- ALERT BOX -->
-    <div class="alert-box">
-      <div class="alert-title">
-        <span class="excl-icon" style="font-size:13px; width:18px; height:18px; line-height:18px;">!</span>
-        System Alert
-      </div>
-      <div class="alert-body">
-        <strong>WARNING:</strong><br>
-        Wearing this hat will not:<br>
-        • Fix the deck<br>
-        • Reduce client comments<br>
-        • Make your manager align<br>
-        • End the engagement early<br><br>
-        It will make you look correct about everything.
-        <button class="btn" style="margin-top:8px; font-size:14px;" onclick="this.closest('.alert-box').style.display='none'">OK &nbsp; &nbsp; Cancel</button>
-      </div>
-    </div>
-
-    <!-- GUESTBOOK -->
-    <div class="window">
-      <div class="window-titlebar">
-        <div class="title-left">
-          <span class="excl-icon">!</span>
-          guestbook.htm
-        </div>
-        <div class="window-controls"><div class="window-btn">✕</div></div>
-      </div>
-      <div class="window-content" style="padding:8px;">
-        <div class="guestbook-entries">
-          <div class="entry"><span class="entry-name">anonymous_consultant:</span><br><span class="entry-text">"wore it on a client call. they thought it was about them. it was."</span></div>
-          <div class="entry"><span class="entry-name">ex_bcg_2023:</span><br><span class="entry-text">"my exit gift to myself. no regrets."</span></div>
-          <div class="entry"><span class="entry-name">slide_goblin:</span><br><span class="entry-text">"partner saw it, said nothing. that was alignment."</span></div>
-          <div class="entry"><span class="entry-name">powerpoint_life:</span><br><span class="entry-text">"it's the most honest thing i own"</span></div>
-          <div class="entry"><span class="entry-name">cancun_edition_fan:</span><br><span class="entry-text">"saw the pool photo. ordered immediately."</span></div>
-        </div>
-        <input type="text" class="modal-input" style="margin-top:8px;" placeholder="sign the guestbook...">
-        <button class="btn" style="font-size:14px;">SIGN →</button>
-      </div>
-    </div>
-
-    <!-- SOCIAL / LINKS -->
-    <div class="window">
-      <div class="window-titlebar">
-        <div class="title-left">links</div>
-        <div class="window-controls"><div class="window-btn">✕</div></div>
-      </div>
-      <div class="window-content" style="padding:8px; font-family:'VT323',monospace; font-size:16px; line-height:2;">
-        <a href="#" style="color:var(--link); display:block;">▶ instagram</a>
-        <a href="#" style="color:var(--link); display:block;">▶ tiktok</a>
-        <a href="mailto:fix@plsfix.me" style="color:var(--link); display:block;">▶ fix@plsfix.me</a>
-        <div class="star-div" style="margin-top:8px; font-size:13px;">add us to your blogroll</div>
-      </div>
-    </div>
-
+  <!-- DROP DEADLINE BANNER
+      DEV NOTE: set the deadline date in the DROP_DEADLINE constant in the
+      <script> block at the bottom. The countdown updates automatically. -->
+  <div class="drop-banner">
+    ⏳ DROP 01 &mdash; reserve before <strong id="drop-date">[DROP DATE]</strong>. Ships after. <span class="countdown" id="countdown">—</span>
   </div>
-</div>
 
-<!-- FOOTER -->
-<div class="footer">
-  © 2024–2026 PLS FIX (ME) &nbsp;|&nbsp;
-  <a href="privacy">privacy</a> &nbsp;|&nbsp;
-  <a href="terms">terms</a> &nbsp;|&nbsp;
-  <a href="mailto:fix@plsfix.me">contact</a><br>
-  <span style="font-size:11px; color:#aaa; letter-spacing:1px;">payments secured by stripe &nbsp;•&nbsp; pre-order drop — ships after orders close</span>
-</div>
-
-<!-- CHECKOUT MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal-window">
+  <!-- HERO WINDOW -->
+  <div class="window hero-window">
     <div class="window-titlebar">
       <div class="title-left">
         <span class="excl-icon">!</span>
-        <span id="modal-title">Checkout</span>
+        plsfix.com — Welcome
       </div>
       <div class="window-controls">
-        <div class="window-btn modal-close" onclick="closeModal()">✕</div>
+        <div class="window-btn">_</div>
+        <div class="window-btn">□</div>
+        <div class="window-btn">✕</div>
       </div>
     </div>
-    <div class="modal-content">
+    <div class="window-content" style="padding:0;">
+      <div class="hero-inner" id="hero-inner">
+        <div class="scanlines"></div>
+        <div class="hero-dvd" id="dvd">
+          <div class="hero-glitch">pls fix (me)</div>
+          <div class="hero-sub">hats for the broken</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <!-- STEP 1: PRE-ORDER CONFIRM
-           DEV NOTE: We do NOT collect card details on-page (avoids PCI scope).
-           Instead each colorway has a Stripe Payment Link. Clicking "Reserve"
-           redirects to Stripe's hosted checkout. Set the links in STRIPE_LINKS
-           in the <script> block below. -->
-      <div id="step-form">
-        <p>You are reserving: <strong id="modal-product"></strong><br>
-        Amount: <strong id="modal-price" style="color:#cc0000;"></strong><br><br>
-        This is a <strong>pre-order</strong> for Drop 01. Payment is taken now and
-        secured via Stripe. Hats ship after the order window closes
-        (<strong id="modal-drop-date">[DROP DATE]</strong>).</p>
+  <!-- UNDER CONSTRUCTION -->
+  <div class="construction-bar">⚠ &nbsp; SITE UNDER CONSTRUCTION &nbsp; ⚠ &nbsp; NEW DROP INCOMING &nbsp; ⚠</div>
 
-        <label class="modal-label" for="email">YOUR EMAIL <span style="color:#cc0000">*</span></label>
-        <input type="email" id="email" class="modal-input" placeholder="you@firm.com" oninput="validateForm()">
+  <!-- MAIN CONTENT -->
+  <div class="main-grid">
 
-        <div style="margin:4px 0 10px;">
-          <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;font-size:11px;line-height:1.5;">
-            <input type="checkbox" id="agree-terms" onchange="validateForm()" style="margin-top:2px;flex-shrink:0;">
-            <label for="agree-terms">I have read and agree to the <a href="terms.html" target="_blank" style="color:#0000EE;">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank" style="color:#0000EE;">Privacy Policy</a>. <span style="color:#cc0000">*</span></label>
+    <!-- LEFT: PRODUCTS -->
+    <div>
+      <div class="window">
+        <div class="window-titlebar">
+          <div class="title-left">
+            <span class="excl-icon">!</span>
+            Shop — pls choose carefully
           </div>
-          <div style="display:flex;align-items:flex-start;gap:8px;font-size:11px;line-height:1.5;">
-            <input type="checkbox" id="agree-news" style="margin-top:2px;flex-shrink:0;">
-            <label for="agree-news">Email me about future drops (optional). Unsubscribe anytime.</label>
+          <div class="window-controls">
+            <div class="window-btn">_</div>
+            <div class="window-btn">□</div>
+            <div class="window-btn">✕</div>
           </div>
         </div>
+        <div class="window-content">
+          <div class="product-grid">
 
-        <button class="btn btn-primary" id="reserve-btn" onclick="reserveViaStripe()" style="font-size:18px; margin-top:4px;" disabled>
-          RESERVE &amp; PAY VIA STRIPE →
-        </button>
-        <button class="btn" onclick="closeModal()" style="font-size:14px;">Cancel</button>
-        <p style="font-size:10px; text-align:center; color:#777; margin-top:8px;">
-          🔒 Secure checkout hosted by Stripe
-        </p>
-      </div>
+            <!-- PRODUCT 1: Green -->
+            <div class="product-card">
+              <div class="product-img green-hat" onclick="window.location='plsfix/green'" style="cursor:pointer;" title="View Forest Green">
+                <div class="hat-display">
+                  <svg class="hat-svg" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="80" cy="78" rx="75" ry="14" fill="#1e3e1e"/>
+                    <path d="M20 78 Q20 30 80 28 Q140 30 140 78 Z" fill="#2d5a2d"/>
+                    <path d="M55 50 Q80 46 105 50" stroke="#90ee90" stroke-width="1.5" fill="none"/>
+                    <text x="80" y="58" text-anchor="middle" fill="#fff" font-family="Courier Prime, monospace" font-size="8" font-style="italic">pls fix (me)</text>
+                  </svg>
+                </div>
+                <div style="position:absolute;bottom:6px;right:8px;font-size:9px;font-family:'VT323',monospace;color:rgba(255,255,255,0.4);letter-spacing:.1em;">VIEW →</div>
+              </div>
+              <div class="product-info">
+                <div class="product-name">PLS FIX (ME) — GREEN</div>
+                <div class="product-desc">Forest green. Corporate-acceptable. For when you technically still work there.</div>
+                <div class="product-price">€35.00</div>
+                <div class="product-status in-stock">● IN STOCK</div>
+                <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Green', '€35.00')">RESERVE — €35 →</button>
+              </div>
+            </div>
 
-      <!-- STEP 2: REDIRECTING -->
-      <div id="step-loading" style="display:none;">
-        <p style="font-family:'VT323',monospace; font-size:18px; text-align:center;">
-          Connecting to Stripe...<br>
-          Redirecting to secure checkout...
-        </p>
-        <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
-        <p style="font-size:10px; text-align:center; color:#555;">DO NOT CLOSE THIS WINDOW</p>
-      </div>
+            <!-- PRODUCT 2: Navy/Blue -->
+            <div class="product-card">
+              <div class="product-img" style="background:#1B2A4A;cursor:pointer;" onclick="window.location='plsfix/navy'" title="View Navy">
+                <div class="hat-display">
+                  <svg class="hat-svg" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="80" cy="78" rx="75" ry="14" fill="#152040"/>
+                    <path d="M20 78 Q20 30 80 28 Q140 30 140 78 Z" fill="#1B2A4A"/>
+                    <path d="M55 50 Q80 46 105 50" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none"/>
+                    <text x="80" y="58" text-anchor="middle" fill="#fff" font-family="Courier Prime, monospace" font-size="8" font-style="italic">pls fix (me)</text>
+                  </svg>
+                </div>
+                <div style="position:absolute;bottom:6px;right:8px;font-size:9px;font-family:'VT323',monospace;color:rgba(255,255,255,0.4);letter-spacing:.1em;">VIEW →</div>
+              </div>
+              <div class="product-info">
+                <div class="product-name">PLS FIX (ME) — NAVY</div>
+                <div class="product-desc">Navy. Passes the dress code. No one needs to know what it means. You do.</div>
+                <div class="product-price">€35.00</div>
+                <div class="product-status in-stock">● IN STOCK</div>
+                <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Navy', '€35.00')">RESERVE — €35 →</button>
+              </div>
+            </div>
 
-      <!-- STEP 3: FALLBACK CONFIRM (only shown in prototype mode when no link set) -->
-      <div id="step-confirm" style="display:none; text-align:center;">
-        <div style="font-family:'VT323',monospace; font-size:48px; color:#006600;">✓</div>
-        <p style="font-family:'VT323',monospace; font-size:22px;">PROTOTYPE MODE<br><span style="font-size:13px; color:#555;">Stripe Payment Link not set yet</span></p>
-        <div class="email-block" style="text-align:left; margin:12px 0;">
-          <div class="email-header">Dev note</div>
-          Add this colorway's Stripe Payment Link in STRIPE_LINKS to enable real checkout.
+            <!-- PRODUCT 3: Black -->
+            <div class="product-card">
+              <div class="product-img black-hat" onclick="window.location='plsfix/black'" style="cursor:pointer;" title="View Black">
+                <div class="hat-display">
+                  <svg class="hat-svg" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="80" cy="78" rx="75" ry="14" fill="#050505"/>
+                    <path d="M20 78 Q20 30 80 28 Q140 30 140 78 Z" fill="#111"/>
+                    <path d="M55 50 Q80 46 105 50" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none"/>
+                    <text x="80" y="58" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Courier Prime, monospace" font-size="8" font-style="italic">pls fix (me)</text>
+                  </svg>
+                </div>
+                <div style="position:absolute;bottom:6px;right:8px;font-size:9px;font-family:'VT323',monospace;color:rgba(255,255,255,0.4);letter-spacing:.1em;">VIEW →</div>
+              </div>
+              <div class="product-info">
+                <div class="product-name">PLS FIX (ME) — BLACK</div>
+                <div class="product-desc">Classic. For airports, client sites, and the quiet despair of Sunday PowerPoint.</div>
+                <div class="product-price">€35.00</div>
+                <div class="product-status in-stock">● IN STOCK</div>
+                <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Black', '€35.00')">RESERVE — €35 →</button>
+              </div>
+            </div>
+
+            <!-- PRODUCT 4: LOCKED -->
+            <div class="product-card" style="position:relative; cursor:not-allowed;">
+              <div class="product-img special" style="filter:brightness(0.3); position:relative;">
+                <div class="hat-display">
+                  <svg class="hat-svg" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="80" cy="78" rx="75" ry="14" fill="#0a0a0a"/>
+                    <path d="M20 78 Q20 30 80 28 Q140 30 140 78 Z" fill="#111"/>
+                    <text x="80" y="58" text-anchor="middle" fill="#333" font-family="Courier Prime, monospace" font-size="8">? ? ?</text>
+                  </svg>
+                </div>
+                <!-- LOCK ICON overlay -->
+                <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;">
+                  <svg width="32" height="38" viewBox="0 0 32 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="16" width="24" height="20" fill="#FFD700" stroke="#000" stroke-width="2"/>
+                    <path d="M9 16V11a7 7 0 0 1 14 0v5" stroke="#FFD700" stroke-width="3" fill="none" stroke-linecap="square"/>
+                    <rect x="13" y="23" width="6" height="6" fill="#000"/>
+                  </svg>
+                  <span style="font-family:'VT323',monospace;font-size:13px;color:#FFD700;letter-spacing:2px;">LOCKED</span>
+                </div>
+              </div>
+              <div class="product-info" style="opacity:0.45;">
+                <div class="product-name" style="color:#888;">??? — RARE DROP</div>
+                <div class="product-desc" style="color:#888;">Identity classified. Unlocks July 2026.</div>
+                <div class="product-price" style="color:#555;">— —</div>
+                <div class="product-status rare-drop">★ COMING JULY 2026</div>
+                <button class="btn" style="opacity:0.4;cursor:not-allowed;" disabled>LOCKED</button>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <button class="btn btn-primary" onclick="closeModal()" style="font-size:16px;">CLOSE ✕</button>
+      </div>
+
+      <!-- ABOUT WINDOW -->
+      <div class="window" style="margin-top:10px;">
+        <div class="window-titlebar">
+          <div class="title-left">
+            <span class="excl-icon">!</span>
+            about.txt
+          </div>
+          <div class="window-controls">
+            <div class="window-btn">_</div>
+            <div class="window-btn">□</div>
+            <div class="window-btn">✕</div>
+          </div>
+        </div>
+        <div class="window-content">
+          <div class="about-text">
+            junior analyst. beached. counseled out gently.<br>
+            start date deferred. utilization: zero.<br>
+            AI made the deck. partner still said pls fix.<br>
+            wore the hat to the feedback session.<br>
+            no further questions.<br><br>
+            <strong style="color:#cc0000">pls fix. thx.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- VISITOR COUNTER -->
+      <div class="window">
+        <div class="window-titlebar">
+          <div class="title-left">visitors</div>
+          <div class="window-controls"><div class="window-btn">✕</div></div>
+        </div>
+        <div class="window-content" style="padding:8px; text-align:center;">
+          <div style="font-size:10px; margin-bottom:4px; font-family:'VT323',monospace;">YOU ARE VISITOR #</div>
+          <div class="counter-display" id="counter">004733</div>
+          <div style="font-size:9px; margin-top:4px; color:#555; font-family:'VT323',monospace;">best viewed 800×600</div>
+        </div>
+      </div>
+
+      <!-- ALERT BOX -->
+      <div class="alert-box">
+        <div class="alert-title">
+          <span class="excl-icon" style="font-size:13px; width:18px; height:18px; line-height:18px;">!</span>
+          System Alert
+        </div>
+        <div class="alert-body">
+          <strong>WARNING:</strong><br>
+          Wearing this hat will not:<br>
+          • Fix the deck<br>
+          • Reduce client comments<br>
+          • Make your manager align<br>
+          • End the engagement early<br><br>
+          It will make you look correct about everything.
+          <button class="btn" style="margin-top:8px; font-size:14px;" onclick="this.closest('.alert-box').style.display='none'">OK &nbsp; &nbsp; Cancel</button>
+        </div>
+      </div>
+
+      <!-- GUESTBOOK -->
+      <div class="window">
+        <div class="window-titlebar">
+          <div class="title-left">
+            <span class="excl-icon">!</span>
+            guestbook.htm
+          </div>
+          <div class="window-controls"><div class="window-btn">✕</div></div>
+        </div>
+        <div class="window-content" style="padding:8px;">
+          <div class="guestbook-entries">
+            <div class="entry"><span class="entry-name">anonymous_consultant:</span><br><span class="entry-text">"wore it on a client call. they thought it was about them. it was."</span></div>
+            <div class="entry"><span class="entry-name">ex_bcg_2023:</span><br><span class="entry-text">"my exit gift to myself. no regrets."</span></div>
+            <div class="entry"><span class="entry-name">slide_goblin:</span><br><span class="entry-text">"partner saw it, said nothing. that was alignment."</span></div>
+            <div class="entry"><span class="entry-name">powerpoint_life:</span><br><span class="entry-text">"it's the most honest thing i own"</span></div>
+            <div class="entry"><span class="entry-name">cancun_edition_fan:</span><br><span class="entry-text">"saw the pool photo. ordered immediately."</span></div>
+          </div>
+          <input type="text" class="modal-input" style="margin-top:8px;" placeholder="sign the guestbook...">
+          <button class="btn" style="font-size:14px;">SIGN →</button>
+        </div>
+      </div>
+
+      <!-- SOCIAL / LINKS -->
+      <div class="window">
+        <div class="window-titlebar">
+          <div class="title-left">links</div>
+          <div class="window-controls"><div class="window-btn">✕</div></div>
+        </div>
+        <div class="window-content" style="padding:8px; font-family:'VT323',monospace; font-size:16px; line-height:2;">
+          <a href="#" style="color:var(--link); display:block;">▶ instagram</a>
+          <a href="#" style="color:var(--link); display:block;">▶ tiktok</a>
+          <a href="mailto:fix@plsfix.me" style="color:var(--link); display:block;">▶ fix@plsfix.me</a>
+          <div class="star-div" style="margin-top:8px; font-size:13px;">add us to your blogroll</div>
+        </div>
       </div>
 
     </div>
   </div>
-</div>
 
-<script>
-  /* ============================================================
-     PLS FIX (ME) — CONFIG  (the only block a developer needs to edit)
-     ============================================================
+  <!-- FOOTER -->
+  <div class="footer">
+    © 2024–2026 PLS FIX (ME) &nbsp;|&nbsp;
+    <a href="privacy">privacy</a> &nbsp;|&nbsp;
+    <a href="terms">terms</a> &nbsp;|&nbsp;
+    <a href="mailto:fix@plsfix.me">contact</a><br>
+    <span style="font-size:11px; color:#aaa; letter-spacing:1px;">payments secured by stripe &nbsp;•&nbsp; pre-order drop — ships after orders close</span>
+  </div>
 
-     1. DROP_DEADLINE — when the pre-order window closes. After this date
-        you tally orders, produce exactly that quantity, and ship.
-        Format: 'YYYY-MM-DDTHH:MM:SS' in 24h local time.
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-window">
+      <div class="window-titlebar">
+        <div class="title-left">
+          <span class="excl-icon">!</span>
+          <span id="modal-title">Checkout</span>
+        </div>
+        <div class="window-controls">
+          <div class="window-btn modal-close" onclick="closeModal()">✕</div>
+        </div>
+      </div>
+      <div class="modal-content">
 
-     2. STRIPE_LINKS — one Stripe Payment Link per colorway.
-        Create them in Stripe Dashboard → Payment Links (no backend needed).
-        Set each link's "after payment" redirect to your /thank-you page.
-        Until a link is filled in, that button shows prototype mode.
+        <!-- STEP 1: PRE-ORDER CONFIRM
+            DEV NOTE: We do NOT collect card details on-page (avoids PCI scope).
+            Instead each colorway has a Stripe Payment Link. Clicking "Reserve"
+            redirects to Stripe's hosted checkout. Set the links in STRIPE_LINKS
+            in the <script> block below. -->
+        <div id="step-form">
+          <p>You are reserving: <strong id="modal-product"></strong><br>
+          Amount: <strong id="modal-price" style="color:#cc0000;"></strong><br><br>
+          This is a <strong>pre-order</strong> for Drop 01. Payment is taken now and
+          secured via Stripe. Hats ship after the order window closes
+          (<strong id="modal-drop-date">[DROP DATE]</strong>).</p>
 
-     3. To mark a colorway sold out, set its link to null AND update the
-        product card status text in the HTML.
-     ============================================================ */
+          <label class="modal-label" for="email">YOUR EMAIL <span style="color:#cc0000">*</span></label>
+          <input type="email" id="email" class="modal-input" placeholder="you@firm.com" oninput="validateForm()">
 
-  const DROP_DEADLINE = '2026-07-01T23:59:59'; // <-- SET ORDER WINDOW CLOSE DATE
+          <div style="margin:4px 0 10px;">
+            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;font-size:11px;line-height:1.5;">
+              <input type="checkbox" id="agree-terms" onchange="validateForm()" style="margin-top:2px;flex-shrink:0;">
+              <label for="agree-terms">I have read and agree to the <a href="terms.html" target="_blank" style="color:#0000EE;">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank" style="color:#0000EE;">Privacy Policy</a>. <span style="color:#cc0000">*</span></label>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;font-size:11px;line-height:1.5;">
+              <input type="checkbox" id="agree-news" style="margin-top:2px;flex-shrink:0;">
+              <label for="agree-news">Email me about future drops (optional). Unsubscribe anytime.</label>
+            </div>
+          </div>
 
-  const STRIPE_LINKS = {
-    'Pls Fix (Me) — Green': '', // <-- paste Stripe Payment Link URL
-    'Pls Fix (Me) — Navy':  '', // <-- paste Stripe Payment Link URL
-    'Pls Fix (Me) — Black': '', // <-- paste Stripe Payment Link URL
-  };
+          <button class="btn btn-primary" id="reserve-btn" onclick="reserveViaStripe()" style="font-size:18px; margin-top:4px;" disabled>
+            RESERVE &amp; PAY VIA STRIPE →
+          </button>
+          <button class="btn" onclick="closeModal()" style="font-size:14px;">Cancel</button>
+          <p style="font-size:10px; text-align:center; color:#777; margin-top:8px;">
+            🔒 Secure checkout hosted by Stripe
+          </p>
+        </div>
 
-  // ── DROP DATE DISPLAY + COUNTDOWN ──────────────────────────
-  (function () {
-    const deadline = new Date(DROP_DEADLINE);
-    const dateStr = deadline.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-    const dEl = document.getElementById('drop-date');
-    const mEl = document.getElementById('modal-drop-date');
-    if (dEl) dEl.textContent = dateStr;
-    if (mEl) mEl.textContent = dateStr;
+        <!-- STEP 2: REDIRECTING -->
+        <div id="step-loading" style="display:none;">
+          <p style="font-family:'VT323',monospace; font-size:18px; text-align:center;">
+            Connecting to Stripe...<br>
+            Redirecting to secure checkout...
+          </p>
+          <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+          <p style="font-size:10px; text-align:center; color:#555;">DO NOT CLOSE THIS WINDOW</p>
+        </div>
 
-    function tick() {
-      const now = new Date();
-      const diff = deadline - now;
-      const el = document.getElementById('countdown');
-      if (!el) return;
-      if (diff <= 0) { el.textContent = 'ORDERS CLOSED'; return; }
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      el.textContent = d + 'd ' + h + 'h ' + m + 'm left';
-    }
-    tick();
-    setInterval(tick, 60000);
-  })();
+        <!-- STEP 3: FALLBACK CONFIRM (only shown in prototype mode when no link set) -->
+        <div id="step-confirm" style="display:none; text-align:center;">
+          <div style="font-family:'VT323',monospace; font-size:48px; color:#006600;">✓</div>
+          <p style="font-family:'VT323',monospace; font-size:22px;">PROTOTYPE MODE<br><span style="font-size:13px; color:#555;">Stripe Payment Link not set yet</span></p>
+          <div class="email-block" style="text-align:left; margin:12px 0;">
+            <div class="email-header">Dev note</div>
+            Add this colorway's Stripe Payment Link in STRIPE_LINKS to enable real checkout.
+          </div>
+          <button class="btn btn-primary" onclick="closeModal()" style="font-size:16px;">CLOSE ✕</button>
+        </div>
 
-  // ── VISITOR COUNTER (cosmetic) ─────────────────────────────
-  let count = 4733;
-  setInterval(() => {
-    count++;
-    const el = document.getElementById('counter');
-    if (el) el.textContent = String(count).padStart(6, '0');
-  }, 7000);
-
-  // ── PRE-ORDER MODAL ────────────────────────────────────────
-  let currentProduct = null;
-
-  function openModal(product, price) {
-    currentProduct = product;
-    document.getElementById('modal-product').textContent = product;
-    document.getElementById('modal-price').textContent = price;
-    document.getElementById('modal-title').textContent = 'reserve — ' + product;
-    document.getElementById('step-form').style.display = 'block';
-    document.getElementById('step-loading').style.display = 'none';
-    document.getElementById('step-confirm').style.display = 'none';
-    // reset form
-    document.getElementById('email').value = '';
-    document.getElementById('agree-terms').checked = false;
-    document.getElementById('agree-news').checked = false;
-    validateForm();
-    document.getElementById('modal').classList.add('active');
-  }
-
-  function closeModal() {
-    document.getElementById('modal').classList.remove('active');
-  }
-
-  // Enable reserve only when email valid AND terms accepted
-  function validateForm() {
-    const email = document.getElementById('email');
-    const terms = document.getElementById('agree-terms');
-    const btn = document.getElementById('reserve-btn');
-    if (!email || !terms || !btn) return;
-    const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim());
-    btn.disabled = !(emailOk && terms.checked);
-  }
-
-  function reserveViaStripe() {
-    const email = document.getElementById('email').value.trim();
-    const newsletter = document.getElementById('agree-news').checked;
-    const link = STRIPE_LINKS[currentProduct];
-
-    /* ----------------------------------------------------------
-       DEV: send {email, newsletter, product, consentAt} to your
-       email tool / order log BEFORE redirecting to Stripe.
-       Store the terms consent + timestamp (GDPR: keep proof).
-       Only add to newsletter list if newsletter === true.
-       Example:
-       fetch('/api/preorder-signup', { method:'POST',
-         headers:{'Content-Type':'application/json'},
-         body: JSON.stringify({ email, newsletter, product: currentProduct,
-           termsConsent:true, consentAt:new Date().toISOString() }) });
-    ---------------------------------------------------------- */
-    console.log('PRE-ORDER SIGNUP', { email, newsletter, product: currentProduct, consentAt: new Date().toISOString() });
-
-    // No link set yet → prototype message
-    if (!link) {
-      document.getElementById('step-form').style.display = 'none';
-      document.getElementById('step-confirm').style.display = 'block';
-      return;
-    }
-
-    // Redirect to Stripe, pre-filling the email
-    document.getElementById('step-form').style.display = 'none';
-    document.getElementById('step-loading').style.display = 'block';
-    const bar = document.getElementById('progress');
-    let w = 0;
-    const interval = setInterval(() => {
-      w += Math.random() * 25 + 10;
-      if (w >= 100) {
-        w = 100;
-        clearInterval(interval);
-        const sep = link.includes('?') ? '&' : '?';
-        window.location.href = link + sep + 'prefilled_email=' + encodeURIComponent(email);
-      }
-      bar.style.width = w + '%';
-    }, 200);
-  }
-
-  // Close modal on overlay click
-  document.getElementById('modal').addEventListener('click', function (e) {
-    if (e.target === this) closeModal();
-  });
-</script>
-</body>
+      </div>
+    </div>
+  </div>
+  </body>
 </html>
