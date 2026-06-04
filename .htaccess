@@ -1,7 +1,0 @@
-RewriteEngine On
-
-RewriteCond %{DOCUMENT_ROOT}/under-construction.flag -f
-RewriteCond %{REQUEST_URI} !^/under-construction\.html$
-RewriteRule ^.*$ /under-construction.html [R=302,L]
-
-ErrorDocument 404 /404.html
