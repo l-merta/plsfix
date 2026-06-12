@@ -48,7 +48,8 @@
     border: 2px solid;
     border-color: #fff #808080 #808080 #fff;
     box-shadow: 2px 2px 0 #000;
-    margin: 10px;
+    /* margin: 10px; */
+    /* margin-bottom: 15px; */
   }
   .window-titlebar {
     background: linear-gradient(to right, #000080, #1084d0);
@@ -180,8 +181,13 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 260px;
-    gap: 10px;
-    padding: 0 10px 20px;
+    gap: 15px;
+    padding: 20px 0;
+  }
+  .main-grid-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 
   /* PRODUCT CARDS */
@@ -284,7 +290,7 @@
   .btn-primary:active { background: #000060; }
 
   /* SIDEBAR */
-  .sidebar { display: flex; flex-direction: column; gap: 10px; }
+  .sidebar { display: flex; flex-direction: column; gap: 15px; }
 
   /* VISITOR COUNTER */
   .counter-display {
