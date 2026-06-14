@@ -18,9 +18,9 @@
     const DROP_DEADLINE = '2026-07-01T23:59:59'; // <-- SET ORDER WINDOW CLOSE DATE
 
     const STRIPE_LINKS = {
-      'Pls Fix (Me) — Green': '', // <-- paste Stripe Payment Link URL
-      'Pls Fix (Me) — Navy':  '', // <-- paste Stripe Payment Link URL
-      'Pls Fix (Me) — Black': '', // <-- paste Stripe Payment Link URL
+      'Pls Fix (Me) — Green': 'https://buy.stripe.com/28E5kDbUT3yV2wxafj1oI01', // <-- paste Stripe Payment Link URL
+      'Pls Fix (Me) — Navy':  'https://buy.stripe.com/fZubJ1f75edzc775Z31oI00', // <-- paste Stripe Payment Link URL
+      'Pls Fix (Me) — Black': 'https://buy.stripe.com/7sY9AT0cb1qN6MN87b1oI02', // <-- paste Stripe Payment Link URL
     };
 
     // ── DROP DATE DISPLAY + COUNTDOWN ──────────────────────────
