@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/styles/hat.css">
 
     <script src="/scripts/hat-green.js" defer></script>
+    <script src="/scripts/image-switch.js" defer></script>
   </head>
   <body class="theme-green">
   <div class="win-bar">
@@ -40,13 +41,13 @@
         <!-- VISUAL -->
         <div class="hat-visual">
           <!-- <div class="hat-glow"></div> -->
-          <img src="/images/green-nature-2.jpeg" alt="PLS FIX (ME) — GREEN" class="hat-photo">
+          <img src="/images/green-front.png" alt="PLS FIX (ME) — GREEN" class="hat-photo">
         </div>
 
         <!-- INFO -->
         <div class="hat-info-panel">
           <div class="hat-num">01 / 03 &nbsp;·&nbsp; Drop 01 &nbsp;·&nbsp; "Bruce"</div>
-          <div class="hat-name">Forest<br>Green</div>
+          <div class="hat-name">Forest Green</div>
           <div class="hat-sub">"Bruce" — for those who left. or are about to.</div>
           <div class="hat-price">€35</div>
           <div class="hat-stock">● Pre-order — reserve before <span id="drop-date">[DROP DATE]</span></div>
@@ -87,12 +88,12 @@
           <div class="gallery-slot">
             <!-- <img src="green-1.jpg" class="hat-photo"> -->
             <!-- <div class="gallery-empty"><span style="font-size:24px;">📷</span>photo 1</div> -->
-            <img src="/images/green-nature.jpeg" alt="PLS FIX (ME) — GREEN">
+            <img src="/images/green-nature.jpeg" alt="PLS FIX (ME) — GREEN" onclick="switchImage(this)">
           </div>
           <div class="gallery-slot">
             <!-- <img src="green-2.jpg" class="hat-photo"> -->
             <!-- <div class="gallery-empty"><span style="font-size:24px;">📷</span>photo 2</div> -->
-            <img src="/images/all-nature-2.jpeg" alt="PLS FIX (ME)">
+            <img src="/images/all-nature-2.jpeg" alt="PLS FIX (ME)" onclick="switchImage(this)">
           </div>
         </div>
       </div>
