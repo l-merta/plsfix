@@ -130,6 +130,30 @@ body{
 .confirm .ck{font-size:40px;color:#1E4D2B;}
 .confirm p{font-size:12px;color:#555;font-style:italic;margin-top:6px;}
 
+.btn {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  background: #d4d0c8;
+  margin-top: 8px;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.05s;
+}
+.btn:active {
+  border-color: #808080 #fff #fff #808080;
+  transform: translate(1px, 1px);
+}
+.btn-primary { background: #000080; color: #fff; }
+.btn-primary:active { background: #000060; }
+
 @media(max-width:600px){
   .hat-stage{grid-template-columns:1fr;}
   .bottom-grid{grid-template-columns:1fr;}

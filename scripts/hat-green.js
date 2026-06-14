@@ -6,7 +6,7 @@
 ============================================================ */
 
 const DROP_DEADLINE = '2026-07-01T23:59:59'; // <-- SET ORDER CLOSE DATE
-const STRIPE_LINK   = '';                      // <-- PASTE STRIPE PAYMENT LINK
+const STRIPE_LINK   = 'https://buy.stripe.com/28E5kDbUT3yV2wxafj1oI01'; // <-- PASTE STRIPE PAYMENT LINK
 const PRODUCT_NAME  = 'Pls Fix (Me) — Green';
 
 (function(){

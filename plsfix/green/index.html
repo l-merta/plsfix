@@ -133,8 +133,8 @@
       </div>
       <div id="modal-body">
         <div class="modal-body">
-          <p>Reserving: <strong>Pls Fix (Me) — Forest Green "Bruce"</strong><br>
-          Amount: <strong style="color:#cc0000">€35</strong><br><br>
+          <p>You are reserving: <strong>Pls Fix (Me) — Forest Green "Bruce"</strong><br>
+          Price: <strong style="color:#cc0000">€35</strong><br><br>
           <strong>Pre-order for Drop 01.</strong> Payment is taken now and secured via Stripe. Ships after the order window closes (<strong id="drop-date">[DROP DATE]</strong>).</p>
           
         
@@ -144,18 +144,26 @@
           <div class="consent-block">
             <div class="consent-row">
               <input type="checkbox" id="agree-terms" onchange="validateForm()">
-              <label for="agree-terms">I have read and agree to the <a href="terms.html" target="_blank">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>. <span class="consent-req">*</span></label>
+              <label for="agree-terms">I have read and agree to the <a href="/terms" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy" target="_blank">Privacy Policy</a>. <span class="consent-req">*</span></label>
             </div>
             <div class="consent-row">
               <input type="checkbox" id="agree-news">
               <label for="agree-news">Email me about future drops (optional). You can unsubscribe anytime.</label>
             </div>
           </div>
+          
+          <button class="btn btn-primary" id="reserve-btn" onclick="reserveViaStripe()" style="font-size:18px; margin-top:4px;" disabled>
+            RESERVE &amp; PAY VIA STRIPE →
+          </button>
+          <button class="btn" onclick="closeModal()" style="font-size:14px;">Cancel</button>
+          <p style="font-size:10px; text-align:center; color:#777; margin-top:8px;">
+            🔒 Secure checkout hosted by Stripe
+          </p>
         </div>
-        <div class="modal-footer">
+        <!-- <div class="modal-footer">
           <button class="d-btn" onclick="closeModal()">Cancel</button>
           <button class="d-btn primary" id="reserve-btn" onclick="reserveViaStripe()" disabled>Reserve &amp; pay via Stripe →</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
