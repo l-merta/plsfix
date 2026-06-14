@@ -221,16 +221,23 @@
     overflow: hidden;
     flex-shrink: 0;
   }
-  .product-img.black-hat { background: #1a1a1a; }
-  .product-img.green-hat { background: #2d5a2d; }
+  /* .product-img.green-hat { background: #2d5a2d; }
+  .product-img.navy-hat { background: #1B2A4A; }
+  .product-img.black-hat { background: #1a1a1a; } */
   .product-img.special { background: #0a0a0a; }
 
   /* Hat SVG representations */
   .hat-display {
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .hat-svg { width: 120px; height: auto; }
+  .hat-display img {
+    width: 70%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
 
   .product-info {
     padding: 10px;
