@@ -15,7 +15,7 @@
           product card status text in the HTML.
       ============================================================ */
 
-    const DROP_DEADLINE = '2026-07-01T23:59:59'; // <-- SET ORDER WINDOW CLOSE DATE
+    const DROP_DEADLINE = '2026-07-31T23:59:59'; // <-- SET ORDER WINDOW CLOSE DATE
 
     const STRIPE_LINKS = {
       'Pls Fix (Me) — Green': 'https://buy.stripe.com/28E5kDbUT3yV2wxafj1oI01', // <-- paste Stripe Payment Link URL
@@ -48,7 +48,7 @@
     })();
 
     // ── VISITOR COUNTER (cosmetic) ─────────────────────────────
-    let count = 4733;
+    let count = 836;
     setInterval(() => {
       count++;
       const el = document.getElementById('counter');
