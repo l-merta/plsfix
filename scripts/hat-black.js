@@ -59,6 +59,15 @@ function reserveViaStripe(){
       '<button class="d-btn primary" style="margin-top:14px" onclick="closeModal()">OK</button></div></div>';
     return;
   }
+
+  const metadata = {
+    email,
+    newsletter,
+    product: PRODUCT_NAME,
+    consentAt: new Date().toISOString()
+  };
+  localStorage.setItem('preorderMetadata', JSON.stringify(metadata));
+
   const sep = STRIPE_LINK.includes('?') ? '&' : '?';
   window.location.href = STRIPE_LINK + sep + 'prefilled_email=' + encodeURIComponent(email);
 }

@@ -123,6 +123,15 @@
         if (w >= 100) {
           w = 100;
           clearInterval(interval);
+
+          const metadata = {
+            email,
+            newsletter,
+            product: currentProduct,
+            consentAt: new Date().toISOString()
+          };
+          localStorage.setItem('preorderMetadata', JSON.stringify(metadata));
+
           const sep = link.includes('?') ? '&' : '?';
           window.location.href = link + sep + 'prefilled_email=' + encodeURIComponent(email);
         }
