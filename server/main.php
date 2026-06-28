@@ -10,11 +10,11 @@ header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
 // Connect to the database
-$servername = getenv('DB_HOST');
-$username   = getenv('DB_USER');
-$password   = getenv('DB_PASSWORD');
-$dbname     = getenv('DB_NAME');
-$dbport     = getenv('DB_PORT') ?: 3306;
+$servername = $_ENV['DB_HOST'] ?? '';
+$username   = $_ENV['DB_USER'] ?? '';
+$password   = $_ENV['DB_PASSWORD'] ?? '';
+$dbname     = $_ENV['DB_NAME'] ?? '';
+$dbport     = $_ENV['DB_PORT'] ?? 3306;
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname, $dbport);
