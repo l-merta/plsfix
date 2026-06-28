@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: plsfix-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: plsfix
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      TZ: Europe/Prague
+    command: --default-time-zone=Europe/Prague
+    ports:
+      - "6200:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: plsfix-phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: plsfix-mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "6100:80"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
