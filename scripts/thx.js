@@ -21,11 +21,16 @@ if (metadata.product == "Pls Fix (Me) — Green") {
   document.getElementById('product-desc').textContent = metadata.productDesc || "";
 }
 
-// post to api
-fetch('/api/order', {
-  method:'POST',
-  headers:{'Content-Type':'application/json'},
-  body: JSON.stringify(metadata)
-});
+postOrder();
 
-localStorage.removeItem('preorderMetadata');
+async function postOrder() {
+  const res = await fetch('/server/?action=order', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(metadata)
+  });
+  
+  console.log(res);
+
+  //localStorage.removeItem('preorderMetadata');
+}

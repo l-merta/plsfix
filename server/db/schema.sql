@@ -1,8 +1,10 @@
+/*
 CREATE DATABASE IF NOT EXISTS plsfix
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
 USE plsfix;
+*/
 
 CREATE TABLE orders (
     id         INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -35,3 +37,18 @@ CREATE TABLE guestbook (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     UNIQUE KEY uq_guestbook_uuid (uuid)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*
+CREATE DATABASE plsfix
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+CREATE DATABASE plsfix-stage
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+CREATE USER 'daniel_lane'@'%' IDENTIFIED BY 'ULKm_4B_';
+GRANT ALL PRIVILEGES ON plsfix.* TO 'daniel_lane'@'%';
+GRANT ALL PRIVILEGES ON plsfix_stage.* TO 'daniel_lane'@'%';
+FLUSH PRIVILEGES;
+*/
