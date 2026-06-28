@@ -176,7 +176,7 @@ if ($method === 'GET' && $action === 'status') {
             "db_connected" => true,
         ]);
     } else {
-        respond(500, [
+        respond(510, [
             "success" => false,
             "db_connected" => false,
         ]);
