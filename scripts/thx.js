@@ -24,7 +24,7 @@ if (metadata.product == "Pls Fix (Me) — Green") {
 postOrder();
 
 async function postOrder() {
-  const res = await fetch('/server/?action=order', {
+  const res = await fetch('/server/main.php?action=order', {
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body: JSON.stringify(metadata)
