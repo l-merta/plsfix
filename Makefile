@@ -1,4 +1,4 @@
-COMPOSE_DEV = docker compose -f docker-compose-dev.yml -p plsfix-dev
+COMPOSE_DEV = docker compose --env-file=./server/.env -f docker-compose-dev.yml -p plsfix-dev
 
 # Targets
 .PHONY: up-dev down-dev

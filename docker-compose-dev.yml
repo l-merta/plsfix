@@ -3,11 +3,13 @@ services:
     image: mysql:8.0
     container_name: plsfix-mysql
     restart: unless-stopped
+    env_file:
+      - ./server/.env
     environment:
-      MYSQL_DATABASE: plsfix
-      MYSQL_USER: plsfix
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       TZ: Europe/Prague
     command: --default-time-zone=Europe/Prague
     ports:
@@ -21,11 +23,13 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: plsfix-phpmyadmin
     restart: unless-stopped
+    env_file:
+      - ./server/.env
     environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
+      PMA_HOST: ${DB_HOST}
+      PMA_PORT: ${DB_PORT_INT}
       PMA_USER: root
-      PMA_PASSWORD: root
+      PMA_PASSWORD: ${DB_ROOT_PASSWORD}
     ports:
       - "6100:80"
     networks:
