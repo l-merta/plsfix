@@ -166,6 +166,24 @@ if ($method === 'POST' && $action === 'guestbook') {
 }
 
 // ---------------------------------------------
+// GET /?action=status
+// Health check — confirms DB connectivity
+// ---------------------------------------------
+if ($method === 'GET' && $action === 'status') {
+    if ($conn->ping()) {
+        respond(200, [
+            "success" => true,
+            "db_connected" => true,
+        ]);
+    } else {
+        respond(500, [
+            "success" => false,
+            "db_connected" => false,
+        ]);
+    }
+}
+
+// ---------------------------------------------
 // No matching route
 // ---------------------------------------------
 respond(404, ["error" => "Unknown action or method"]);
