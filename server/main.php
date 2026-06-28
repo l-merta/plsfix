@@ -14,9 +14,10 @@ $servername = getenv('DB_HOST');
 $username   = getenv('DB_USER');
 $password   = getenv('DB_PASSWORD');
 $dbname     = getenv('DB_NAME');
+$dbport     = getenv('DB_PORT') ?: 3306;
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $dbport);
 
 // Check connection
 if ($conn->connect_error) {
