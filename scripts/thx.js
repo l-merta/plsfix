@@ -32,5 +32,5 @@ async function postOrder() {
   
   console.log(res);
 
-  //localStorage.removeItem('preorderMetadata');
+  localStorage.removeItem('preorderMetadata');
 }
