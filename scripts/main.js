@@ -57,11 +57,13 @@
 
     // ── PRE-ORDER MODAL ────────────────────────────────────────
     let currentProduct = null;
+    let currentPrice = null;
 
     function openModal(product, price) {
       currentProduct = product;
+      currentPrice = price;
       document.getElementById('modal-product').textContent = product;
-      document.getElementById('modal-price').textContent = price;
+      document.getElementById('modal-price').textContent = "€" + price.toFixed(2);
       document.getElementById('modal-title').textContent = 'reserve — ' + product;
       document.getElementById('step-form').style.display = 'block';
       document.getElementById('step-loading').style.display = 'none';
@@ -128,6 +130,7 @@
             email,
             newsletter,
             product: currentProduct,
+            price: currentPrice,
             consentAt: new Date().toISOString()
           };
           localStorage.setItem('preorderMetadata', JSON.stringify(metadata));

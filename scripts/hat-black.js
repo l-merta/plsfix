@@ -8,6 +8,7 @@
 const DROP_DEADLINE = '2026-07-31T23:59:59'; // <-- SET ORDER CLOSE DATE
 const STRIPE_LINK   = 'https://buy.stripe.com/7sY9AT0cb1qN6MN87b1oI02'; // <-- PASTE STRIPE PAYMENT LINK
 const PRODUCT_NAME  = 'Pls Fix (Me) — Black';
+const PRODUCT_PRICE = 35;
 
 (function(){
   const d = new Date(DROP_DEADLINE);
@@ -64,6 +65,7 @@ function reserveViaStripe(){
     email,
     newsletter,
     product: PRODUCT_NAME,
+    price: PRODUCT_PRICE,
     consentAt: new Date().toISOString()
   };
   localStorage.setItem('preorderMetadata', JSON.stringify(metadata));
