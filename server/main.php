@@ -97,8 +97,15 @@ if ($method === 'POST' && $action === 'order') {
     $uuidResult = $uuidStmt->get_result()->fetch_assoc();
     $uuidStmt->close();
 
-    // Optional newsletter signup
-    if ($newsletter) {
+    // Fetch newsletter for this email
+    $nlCheckStmt = $conn->prepare("SELECT email FROM newsletters WHERE email = ?");
+    $nlCheckStmt->bind_param("s", $email);
+    $nlCheckStmt->execute();
+    $nlCheckResult = $nlCheckStmt->get_result()->fetch_assoc();
+    $nlCheckStmt->close();
+
+    // Optional newsletter signup if true and not already saved to db
+    if ($newsletter && empty($nlCheckResult)) {
         $nlStmt = $conn->prepare(
             "INSERT INTO newsletters (email) VALUES (?)
              ON DUPLICATE KEY UPDATE email = email"
