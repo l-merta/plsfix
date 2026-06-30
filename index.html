@@ -395,8 +395,8 @@
           </div>
 
           <div class="modal-row" style="display:flex; gap:0.6rem; margin-top:12px;">
-            <button class="btn" onclick="closeModal('staple-modal')" style="font-size:14px; margin-top:0px;">Reserve cap</button>
-            <button class="btn" onclick="closeModal('staple-modal')" style="font-size:14px; margin-top:0px;">Return to deck</button>
+            <button class="btn" onclick="closeModal('staple-modal', stapleDontShowFunc())" style="font-size:14px; margin-top:0px;">Reserve cap</button>
+            <button class="btn" onclick="closeModal('staple-modal', stapleDontShowFunc())" style="font-size:14px; margin-top:0px;">Return to deck</button>
           </div>
         </div>
 
@@ -418,7 +418,7 @@
             <div class="email-header">Dev note</div>
             Add this colorway's Stripe Payment Link in STRIPE_LINKS to enable real checkout.
           </div>
-          <button class="btn btn-primary" onclick="closeModal('staple-modal')" style="font-size:16px;">CLOSE ✕</button>
+          <button class="btn btn-primary" onclick="closeModal('staple-modal', stapleDontShowFunc())" style="font-size:16px;">CLOSE ✕</button>
         </div>
 
       </div>
