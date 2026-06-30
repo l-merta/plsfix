@@ -22,3 +22,21 @@ strong{font-weight:700;}
 .placeholder{background:#fff0c2;padding:0 4px;border-bottom:1px dashed #b8860b;font-style:italic;}
 .footer-note{margin-top:28px;padding-top:14px;border-top:1px solid #ddd;font-size:11px;color:#888;font-style:italic;}
 a{color:#000080;}
+.staple-cont img {
+  width: 280px;
+  height: 260px;
+  margin: 0 -50px;
+  margin-left: -20px;
+  margin-top: 26px;
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .thx-row { flex-direction: column; }
+  .staple-cont img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    margin-bottom: -30px;
+  }
+}
