@@ -6,9 +6,12 @@ if (stapleDontShowCheckbox && localStorage.getItem('stapleDontShow') === 'true')
 
 document.getElementById('staple-modal').addEventListener('click', function (e) {
   if (e.target === this) {
-    if (stapleDontShowCheckbox && stapleDontShowCheckbox.checked) {
-      localStorage.setItem('stapleDontShow', 'true');
-    }
-    closeModal(e.target.id);
+    closeModal(e.target.id, stapleDontShowFunc);
   }
 });
+
+function stapleDontShowFunc() {
+  if (stapleDontShowCheckbox && stapleDontShowCheckbox.checked) {
+    localStorage.setItem('stapleDontShow', 'true');
+  }
+}

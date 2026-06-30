@@ -76,8 +76,9 @@ if (el) el.textContent = String(count).padStart(6, '0');
       document.getElementById(modalId).classList.remove('disabled');
     }
 
-function closeModal(modalId) {
-document.getElementById(modalId).classList.add('disabled');
+function closeModal(modalId, functionToCall) {
+  document.getElementById(modalId).classList.add('disabled');
+  if (functionToCall) functionToCall;
 }
 
 // Enable reserve only when email valid AND terms accepted
