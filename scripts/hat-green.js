@@ -8,6 +8,7 @@
 const DROP_DEADLINE = '2026-07-31T23:59:59'; // <-- SET ORDER CLOSE DATE
 const STRIPE_LINK   = 'https://buy.stripe.com/28E5kDbUT3yV2wxafj1oI01'; // <-- PASTE STRIPE PAYMENT LINK
 const PRODUCT_NAME  = 'Pls Fix (Me) — Green';
+const PRODUCT_PRICE = 35;
 
 (function(){
   const d = new Date(DROP_DEADLINE);
@@ -59,6 +60,16 @@ function reserveViaStripe(){
       '<button class="d-btn primary" style="margin-top:14px" onclick="closeModal()">OK</button></div></div>';
     return;
   }
+
+  const metadata = {
+    email,
+    newsletter,
+    product: PRODUCT_NAME,
+    price: PRODUCT_PRICE,
+    consentAt: new Date().toISOString()
+  };
+  localStorage.setItem('preorderMetadata', JSON.stringify(metadata));
+
   const sep = STRIPE_LINK.includes('?') ? '&' : '?';
   window.location.href = STRIPE_LINK + sep + 'prefilled_email=' + encodeURIComponent(email);
 }

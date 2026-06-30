@@ -1,0 +1,44 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: plsfix-mysql
+    restart: unless-stopped
+    env_file:
+      - ./server/.env
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      TZ: Europe/Prague
+    command: --default-time-zone=Europe/Prague
+    ports:
+      - "6200:3306"
+    networks:
+      - plsfix-network
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: plsfix-phpmyadmin
+    restart: unless-stopped
+    env_file:
+      - ./server/.env
+    environment:
+      PMA_HOST: ${DB_HOST}
+      PMA_PORT: ${DB_PORT_INT}
+      PMA_USER: root
+      PMA_PASSWORD: ${DB_ROOT_PASSWORD}
+    ports:
+      - "6100:80"
+    networks:
+      - plsfix-network
+    depends_on:
+      - mysql
+
+networks:
+  plsfix-network:
+    driver: bridge
+volumes:
+  mysql_data:

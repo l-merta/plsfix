@@ -56,23 +56,25 @@ if (el) el.textContent = String(count).padStart(6, '0');
 }, 7000);
 
 // ── PRE-ORDER MODAL ────────────────────────────────────────
-let currentProduct = null;
+    let currentProduct = null;
+    let currentPrice = null;
 
-function openModal(product, price, modalId) {
-currentProduct = product;
-document.getElementById('modal-product').textContent = product;
-document.getElementById('modal-price').textContent = price;
-document.getElementById('modal-title').textContent = 'reserve — ' + product;
-document.getElementById('step-form').style.display = 'block';
-document.getElementById('step-loading').style.display = 'none';
-document.getElementById('step-confirm').style.display = 'none';
-// reset form
-document.getElementById('email').value = '';
-document.getElementById('agree-terms').checked = false;
-document.getElementById('agree-news').checked = false;
-validateForm();
-document.getElementById(modalId).classList.remove('disabled');
-}
+    function openModal(product, price, modalId) {
+      currentProduct = product;
+      currentPrice = price;
+      document.getElementById('modal-product').textContent = product;
+      document.getElementById('modal-price').textContent = "€" + price.toFixed(2);
+      document.getElementById('modal-title').textContent = 'reserve — ' + product;
+      document.getElementById('step-form').style.display = 'block';
+      document.getElementById('step-loading').style.display = 'none';
+      document.getElementById('step-confirm').style.display = 'none';
+      // reset form
+      document.getElementById('email').value = '';
+      document.getElementById('agree-terms').checked = false;
+      document.getElementById('agree-news').checked = false;
+      validateForm();
+      document.getElementById(modalId).classList.remove('disabled');
+    }
 
 function closeModal(modalId) {
 document.getElementById(modalId).classList.add('disabled');
@@ -123,6 +125,16 @@ const interval = setInterval(() => {
   if (w >= 100) {
     w = 100;
     clearInterval(interval);
+
+          const metadata = {
+            email,
+            newsletter,
+            product: currentProduct,
+            price: currentPrice,
+            consentAt: new Date().toISOString()
+          };
+          localStorage.setItem('preorderMetadata', JSON.stringify(metadata));
+
     const sep = link.includes('?') ? '&' : '?';
     window.location.href = link + sep + 'prefilled_email=' + encodeURIComponent(email);
   }
