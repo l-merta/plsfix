@@ -126,14 +126,14 @@ const interval = setInterval(() => {
     w = 100;
     clearInterval(interval);
 
-          const metadata = {
-            email,
-            newsletter,
-            product: currentProduct,
-            price: currentPrice,
-            consentAt: new Date().toISOString()
-          };
-          localStorage.setItem('preorderMetadata', JSON.stringify(metadata));
+    const metadata = {
+      email,
+      newsletter,
+      product: currentProduct,
+      price: currentPrice,
+      consentAt: new Date().toISOString()
+    };
+    localStorage.setItem('preorderMetadata', JSON.stringify(metadata));
 
     const sep = link.includes('?') ? '&' : '?';
     window.location.href = link + sep + 'prefilled_email=' + encodeURIComponent(email);
