@@ -19,6 +19,9 @@
     cursor: default;
     min-height: 100vh;
   }
+  .disabled {
+    display: none !important;
+  }
 
   /* MARQUEE TOP BAR */
   .topbar {
@@ -414,7 +417,7 @@
 
   /* STRIPE CHECKOUT MODAL */
   .modal-overlay {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0,0,0,0.5);
@@ -444,6 +447,22 @@
   .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .modal-label { font-size: 10px; margin-bottom: 2px; display: block; }
   .modal-close { cursor: pointer; }
+
+  .staple-modal-overlay .modal-window {
+    width: 600px;
+    max-width: calc(100vw - 20px);
+  }
+  .staple-cont {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+  .staple-cont img {
+    max-width: 200px;
+    height: 250px;
+    margin: -20px 0;
+    object-fit: cover;
+  }
 
   /* LOADING BAR */
   .loading-window { display: none; }

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/styles/main.css">
 
     <script src="/scripts/main.js" defer></script>
+    <script src="/scripts/staple.js" defer></script>
   </head>
   <body>
 
@@ -93,7 +94,7 @@
                 <div class="product-desc">Forest green. Corporate-acceptable. For when you technically still work there.</div>
                 <div class="product-price">€35.00</div>
                 <div class="product-status in-stock">● IN STOCK</div>
-                <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Green', '€35.00')">RESERVE — €35 →</button>
+                <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Green', '€35.00', 'modal')">RESERVE — €35 →</button>
               </div>
             </div>
 
@@ -110,7 +111,7 @@
                 <div class="product-desc">Navy. Passes the dress code. No one needs to know what it means. You do.</div>
                 <div class="product-price">€35.00</div>
                 <div class="product-status in-stock">● IN STOCK</div>
-                <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Navy', '€35.00')">RESERVE — €35 →</button>
+                <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Navy', '€35.00', 'modal')">RESERVE — €35 →</button>
               </div>
             </div>
 
@@ -127,7 +128,7 @@
                 <div class="product-desc">Classic. For airports, client sites, and the quiet despair of Sunday PowerPoint.</div>
                 <div class="product-price">€35.00</div>
                 <div class="product-status in-stock">● IN STOCK</div>
-                <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Black', '€35.00')">RESERVE — €35 →</button>
+                <button class="btn btn-primary" onclick="openModal('Pls Fix (Me) — Black', '€35.00', 'modal')">RESERVE — €35 →</button>
               </div>
             </div>
 
@@ -276,7 +277,7 @@
   </div>
 
   <!-- CHECKOUT MODAL -->
-  <div class="modal-overlay" id="modal">
+  <div class="modal-overlay disabled" id="modal">
     <div class="modal-window">
       <div class="window-titlebar">
         <div class="title-left">
@@ -284,7 +285,7 @@
           <span id="modal-title">Checkout</span>
         </div>
         <div class="window-controls">
-          <div class="window-btn modal-close" onclick="closeModal()">✕</div>
+          <div class="window-btn modal-close" onclick="closeModal('modal')">✕</div>
         </div>
       </div>
       <div class="modal-content">
@@ -318,7 +319,7 @@
           <button class="btn btn-primary" id="reserve-btn" onclick="reserveViaStripe()" style="font-size:18px; margin-top:4px;" disabled>
             RESERVE &amp; PAY VIA STRIPE →
           </button>
-          <button class="btn" onclick="closeModal()" style="font-size:14px;">Cancel</button>
+          <button class="btn" onclick="closeModal('modal')" style="font-size:14px;">Cancel</button>
           <p style="font-size:10px; text-align:center; color:#777; margin-top:8px;">
             🔒 Secure checkout hosted by Stripe
           </p>
@@ -342,7 +343,83 @@
             <div class="email-header">Dev note</div>
             Add this colorway's Stripe Payment Link in STRIPE_LINKS to enable real checkout.
           </div>
-          <button class="btn btn-primary" onclick="closeModal()" style="font-size:16px;">CLOSE ✕</button>
+          <button class="btn btn-primary" onclick="closeModal('modal')" style="font-size:16px;">CLOSE ✕</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- STAPLE MODAL -->
+  <div class="modal-overlay staple-modal-overlay" id="staple-modal">
+    <div class="modal-window">
+      <div class="window-titlebar">
+        <div class="title-left">
+          <span class="excl-icon">!</span>
+          <span id="modal-title">System alert</span>
+        </div>
+        <div class="window-controls">
+          <div class="window-btn modal-close" onclick="closeModal('staple-modal')">✕</div>
+        </div>
+      </div>
+      <div class="modal-content">
+
+        <!-- STEP 1: PRE-ORDER CONFIRM
+            DEV NOTE: We do NOT collect card details on-page (avoids PCI scope).
+            Instead each colorway has a Stripe Payment Link. Clicking "Reserve"
+            redirects to Stripe's hosted checkout. Set the links in STRIPE_LINKS
+            in the <script> block below. -->
+        <div id="step-form">
+          <div style="display:flex; gap:14px;">
+            <div class="staple-cont">
+              <img src="/images/staple.png" alt="Windows staple icon">
+            </div>
+            <div>
+              <p style="font-size:0.8rem">
+                It looks like you're fixing another presentation. <br><br>
+
+                We can't help with the deck. <br>
+                Nobody can. <br><br>
+
+                But we can offer a limited cap for those who know that "pls fix" was never really about the slide. <br><br>
+
+                Welcome to Drop 01.
+              </p>
+
+              <div style="margin:4px 0 10px;">
+                <div style="display:flex;align-items:flex-start;gap:8px;font-size:11px;line-height:1.5;">
+                  <input type="checkbox" id="staple-dont-show" style="margin-top:2px;flex-shrink:0;">
+                  <label for="staple-dont-show">Don't show me this message again.</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:0.6rem; margin-top:12px;">
+            <button class="btn" onclick="closeModal('staple-modal')" style="font-size:14px;">Reserve cap</button>
+            <button class="btn" onclick="closeModal('staple-modal')" style="font-size:14px;">Return to deck</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: REDIRECTING -->
+        <div id="step-loading" style="display:none;">
+          <p style="font-family:'VT323',monospace; font-size:18px; text-align:center;">
+            Connecting to Stripe...<br>
+            Redirecting to secure checkout...
+          </p>
+          <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+          <p style="font-size:10px; text-align:center; color:#555;">DO NOT CLOSE THIS WINDOW</p>
+        </div>
+
+        <!-- STEP 3: FALLBACK CONFIRM (only shown in prototype mode when no link set) -->
+        <div id="step-confirm" style="display:none; text-align:center;">
+          <div style="font-family:'VT323',monospace; font-size:48px; color:#006600;">✓</div>
+          <p style="font-family:'VT323',monospace; font-size:22px;">PROTOTYPE MODE<br><span style="font-size:13px; color:#555;">Stripe Payment Link not set yet</span></p>
+          <div class="email-block" style="text-align:left; margin:12px 0;">
+            <div class="email-header">Dev note</div>
+            Add this colorway's Stripe Payment Link in STRIPE_LINKS to enable real checkout.
+          </div>
+          <button class="btn btn-primary" onclick="closeModal('staple-modal')" style="font-size:16px;">CLOSE ✕</button>
         </div>
 
       </div>
