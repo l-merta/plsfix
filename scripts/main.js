@@ -80,6 +80,9 @@ function closeModal(modalId, functionToCall) {
   document.getElementById(modalId).classList.add('disabled');
   if (functionToCall) functionToCall;
 }
+function openInfoModal(modalId) {
+  document.getElementById(modalId).classList.remove('disabled');
+}
 
 // Enable reserve only when email valid AND terms accepted
 function validateForm() {
