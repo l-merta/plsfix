@@ -1,7 +1,11 @@
 const stapleDontShowCheckbox = document.getElementById('staple-dont-show');
 
-if (stapleDontShowCheckbox && localStorage.getItem('stapleDontShow') === 'true') {
-  closeModal('staple-modal')
+const stapleDontShow = localStorage.getItem('stapleDontShow');
+
+if (stapleDontShowCheckbox && !stapleDontShow) {
+  setTimeout(function () {
+    openInfoModal('staple-modal');
+  }, 5 * 1000);
 }
 
 document.getElementById('staple-modal').addEventListener('click', function (e) {
