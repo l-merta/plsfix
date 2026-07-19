@@ -4,7 +4,7 @@ const stapleDontShow = localStorage.getItem('stapleDontShow');
 
 if (stapleDontShowCheckbox && !stapleDontShow) {
   setTimeout(function () {
-    openInfoModal('staple-modal');
+    //openInfoModal('staple-modal');
   }, 5 * 1000);
 }
 
